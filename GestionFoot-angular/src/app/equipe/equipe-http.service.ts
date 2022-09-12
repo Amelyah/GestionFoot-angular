@@ -10,23 +10,23 @@ import { Joueur } from '../model';
 
 export class EquipeHttpService {
 
-  joueurs : Array<Joueur>;
 
-  constructor(private http : HttpClient) {
-     this.getAllJoueur();   
+  constructor(private http : HttpClient) {  
   }
 
-  getAllJoueur() : Observable<Array<Joueur>>{
-    return this.http.get<Array<Joueur>>("http://localhost:8080/api/joueur")
+  getAllGardien() : Observable<Array<Joueur>>{
+    return this.http.get<Array<Joueur>>("http://localhost:8080/api/gardien")
   }
-  // http://localhost:8080/api/joueur
-
-  // http://localhost:8080/api/equipe + json 
-  // {
-  //   "pays": "France",
-  //   "classement": 0,
-  //   "couleur": "Bleu"
-  // }
-
+  getAllDefenseur() : Observable<Array<Joueur>>{
+    return this.http.get<Array<Joueur>>("http://localhost:8080/api/defenseur")
+  }
+  getAllMillieu() : Observable<Array<Joueur>>{
+    return this.http.get<Array<Joueur>>("http://localhost:8080/api/milieu")
+  }
+  getAllAttaquant() : Observable<Array<Joueur>>{
+    return this.http.get<Array<Joueur>>("http://localhost:8080/api/attaquant")
+  }
+  
+  
 
 }

@@ -15,6 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EquipeHttpService } from './equipe/equipe-http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { JoueurRaccPipe } from './joueur-racc.pipe';
+import { NomRaccPipe } from './nom-racc.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     RegleComponent,
     CompteComponent,
     EntrainementComponent,
-    DashboardComponent
+    DashboardComponent,
+    JoueurRaccPipe,
+    NomRaccPipe
   ],
   imports: [
     BrowserModule,

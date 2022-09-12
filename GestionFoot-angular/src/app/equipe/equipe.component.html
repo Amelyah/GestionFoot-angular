@@ -1,5 +1,146 @@
 <h1 class="equipe_title"> Créer ton équipe</h1>
-
-<div class="equipe_joueur" *ngFor="let joueur of joueurs">
-    <div>{{joueur["nom"]}}</div>
+<div class="main_equipe">
+<div class="tableau">
+<div class="equipe_joueur">
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Physique</th>
+            <th scope="col">Technique</th>
+            <th scope="col">Tactique</th>
+            <th scope="col">Mental</th>
+            <th scope="col">Taux d'Arret</th>
+            <th scope="col">Jeux au pied</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let gardien of gardiens">
+            <th scope="row">{{gardien["id"]}}</th>
+            <td>{{gardien["nom"] | nomRacc : gardien["prenom"]}}</td>
+            <td>{{gardien["physique"]}}</td>
+            <td>{{gardien["technique"]}}</td>
+            <td>{{gardien["tactique"]}}</td>
+            <td>{{gardien["mental"]}}</td>
+            <td>{{gardien["jeuPied"]}}</td>
+            <td>{{gardien["nbArret"]}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
 </div>
+<br>
+<div class="equipe_joueur" >
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">physique</th>
+            <th scope="col">technique</th>
+            <th scope="col">tactique</th>
+            <th scope="col">mental</th>
+            <th scope="col">Taux d'interception</th>
+            <th scope="col">Taux de relance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let defenseur of defenseurs">
+            <th scope="row">{{defenseur["id"]}}</th>
+            <td>{{defenseur["nom"] | nomRacc : defenseur["prenom"]}}</td>
+            <td>{{defenseur["physique"]}}</td>
+            <td>{{defenseur["technique"]}}</td>
+            <td>{{defenseur["tactique"]}}</td>
+            <td>{{defenseur["mental"]}}</td>
+            <td>{{defenseur["tauxInterception"]}}</td>
+            <td>{{defenseur["capaciteRelance"]}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+<br>
+<div class="equipe_joueur" >
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">physique</th>
+            <th scope="col">technique</th>
+            <th scope="col">tactique</th>
+            <th scope="col">mental</th>
+            <th scope="col">Espace occupé</th>
+            <th scope="col">Jeux de l'avant</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let milieu of milieux">
+            <th scope="row">{{milieu["id"]}}</th>
+            <td>{{milieu["nom"] | nomRacc : milieu["prenom"]}}</td>
+            <td>{{milieu["physique"]}}</td>
+            <td>{{milieu["technique"]}}</td>
+            <td>{{milieu["tactique"]}}</td>
+            <td>{{milieu["mental"]}}</td>
+            <td>{{milieu["tauxEspace"]}}</td>
+            <td>{{milieu["tauxTransmissionAttaquant"]}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+<br>
+<div class="equipe_joueur" >
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">physique</th>
+            <th scope="col">technique</th>
+            <th scope="col">tactique</th>
+            <th scope="col">mental</th>
+            <th scope="col">Taux d'assist</th>
+            <th scope="col">Taux but</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let attaquant of attaquants">
+            <th scope="row">{{attaquant["id"]}}</th>
+            <td>{{attaquant["nom"] | nomRacc : attaquant["prenom"]}}</td>
+            <td>{{attaquant["physique"]}}</td>
+            <td>{{attaquant["technique"]}}</td>
+            <td>{{attaquant["tactique"]}}</td>
+            <td>{{attaquant["mental"]}}</td>
+            <td>{{attaquant["tauxAssist"]}}</td>
+            <td>{{attaquant["tauxBut"]}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+</div>
+
+<div class="container_bouton_display_tableau">
+
+    <button type="button" (click)="voir($event)" class="btn btn-primary" data-toggle="0" aria-pressed="false" autocomplete="off">
+        Voir gardien
+      </button>
+      <button type="button"(click)="voir($event)" class="btn btn-primary" data-toggle="1" aria-pressed="false" autocomplete="off">
+        Voir défenseurs
+      </button>
+      <button type="button" (click)="voir($event)" class="btn btn-primary" data-toggle="2" aria-pressed="false" autocomplete="off">
+        Voir millieux
+      </button>
+      <button type="button"  (click)="voir($event)" class="btn btn-primary" data-toggle="3" aria-pressed="false" autocomplete="off">
+        Voir attaquants
+      </button>
+
+
+</div>
+</div>
+<!-- gardiens : Array<Joueur>;
+    defenseurs : Array<Joueur>;
+    milieux : Array<Joueur>;
+    attaquants : Array<Joueur>; -->
