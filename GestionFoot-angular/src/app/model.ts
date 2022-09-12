@@ -10,6 +10,13 @@ export abstract class Personne {
         this.prenom = prenom;
         this.naissance = naissance;
     }
+
+    getNom() : string {
+        return this.nom;
+    }
+    getPrenom() : string {
+        return this.prenom;
+    }
 }
 
 export class Equipe {

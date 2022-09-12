@@ -12,6 +12,9 @@ import { RegleComponent } from './regle/regle.component';
 import { CompteComponent } from './compte/compte.component';
 import { EntrainementComponent } from './entrainement/entrainement.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EquipeHttpService } from './equipe/equipe-http.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, 
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    
+    EquipeHttpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
