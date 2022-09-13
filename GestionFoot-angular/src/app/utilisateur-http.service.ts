@@ -7,7 +7,7 @@ import { Compte } from './model';
 @Injectable({
   providedIn: 'root'
 })
-export class CompteHttpService {
+export class UtilisateurHttpService {
 
   comptes: Array<Compte> = new Array<Compte>();
   apiPath: string;
@@ -51,11 +51,4 @@ export class CompteHttpService {
         this.load();
       });
   }
-
-  /*login(login: string, password: string): Observable<Compte> {
-    return this.http.post<Compte>(this.apiPath+"login", {
-      "login": login,
-      "password": password
-    });
-  }*/
 }

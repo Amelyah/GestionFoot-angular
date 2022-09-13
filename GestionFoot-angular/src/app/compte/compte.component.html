@@ -2,28 +2,81 @@
 <div class="container-fluid">
     <h1>Mon profil</h1>
 
+    <a class="retour" *ngIf="auth.compte.hasEquipe" [routerLink]="['/menu-principal']">Retour</a>
+    <a class="retour" *ngIf="!auth.compte.hasEquipe" [routerLink]="['/menu-inscription']">Retour</a>
+
     <div class="avatar-upload">
         <div class="avatar-edit">
-            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" onchange="readURL(this);" />
+            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" (change)="uploadFile($event)" />
             <label for="imageUpload">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"/>
+                </svg>
             </label>
         </div>
         
         <div class="avatar-preview">
             <div id="imagePreview" style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/751678/skytsunami.png);">
-            </div>  
+            </div>
         </div>
     </div>
 
+    <div class="compte">
+        <div class="infos-compte">
+            <div class="login">
+                Login : {{afficheLogin()}}
+            </div>
 
-    <label class="image-upload-container btn btn-bwm">
-        <span>Select Image</span>
-        <input #imageInput
-               type="file"
-               accept="image/*"
-               (change)="onSelectFile(imageInput)">
-      </label>
+            <div>
+                <div class="separation">|</div>
+            </div>
+            
+            <div class="email">
+                Email : {{afficheEmail()}}
+            </div>
+
+            <div>
+                <div class="separation">|</div>
+            </div>
+
+            <div class="hasEquipe">
+                Possession d'une équipe : {{afficheHasEquipe()}}
+            </div>
+        </div>
+        <div class="btnEdit">
+            <button (click)="edit(13)">Modifier mes informations</button>
+        </div>
+    </div>
+
+    <div class="card mt-3" *ngIf="formCompte">
+        <div class="card-header bg-primary text-white display-6">Modification de mon profil</div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="login">Login:</label> <input type="text" class="form-control" id="login" name="login" [(ngModel)]="formCompte.login" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label> <input type="text" class="form-control" id="email" name="email" [(ngModel)]="formCompte.email" />
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group btn-group-lg float-right">
+                <button (click)="save()">Enregistrer</button>
+                <button (click)="cancel()">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="recapEquipe" *ngIf="auth.compte.hasEquipe">
+        <h2>Mon équipe</h2>
+        <p>Nom :</p>
+        <p>Capacité : 7</p>
+        <p>Pays :</p>
+        <p>Mes attaquants :</p>
+        <p>Mes défenseurs :</p>
+        <p>Mes milieu de terrain :</p>
+        <p>Mon gardien :</p>
+        <p>L'entraineur :</p>
+    </div>
 
 </div>
 

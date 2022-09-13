@@ -8,7 +8,6 @@ import { MenuPrincipalComponent } from './menu-principal/menu-principal.componen
 import { EquipeComponent } from './equipe/equipe.component';
 import { MatchComponent } from './match/match.component';
 import { RegleComponent } from './regle/regle.component';
-import { CompteComponent } from './compte/compte.component';
 import { EntrainementComponent } from './entrainement/entrainement.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,8 +16,10 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AuthService } from './auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CompteHttpService } from './compte-http.service';
+import { UtilisateurHttpService } from './utilisateur-http.service';
 import { APIInterceptor } from './api.interceptor';
+import { CompteHttpService } from './compte/compte-http.service';
+import { CompteComponent } from './compte/compte.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,12 @@ import { APIInterceptor } from './api.interceptor';
     EquipeComponent,
     MatchComponent,
     RegleComponent,
-    CompteComponent,
     EntrainementComponent,
     DashboardComponent,
     FooterComponent,
     ConnexionComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    CompteComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,8 @@ import { APIInterceptor } from './api.interceptor';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService,CompteHttpService,{provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true } ],
+  providers: [AuthService,UtilisateurHttpService,CompteHttpService,
+    {provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,8 +21,17 @@ export class ConnexionComponent implements OnInit {
   seConnecter() {
     this.authService.connexion(this.login, this.password).subscribe((resp) => {
       this.authService.compte = resp;
+      
+      localStorage.setItem('id', this.authService.compte.id.toString());
+      localStorage.setItem('login', this.authService.compte.login);
+      localStorage.setItem('password', this.authService.compte.password); 
+      localStorage.setItem('email', this.authService.compte.email);
+      if(this.authService.compte.hasEquipe) 
+        localStorage.setItem('hasEquipe', 'true');
+      else localStorage.setItem('hasEquipe', 'false');
       if(this.authService.compte.hasEquipe) this.router.navigate(["/menu-principal"]);
       else this.router.navigate(["/menu-inscription"]);
+      
     }, error => {
       if(error.status == "403") {
         this.loginError = true;

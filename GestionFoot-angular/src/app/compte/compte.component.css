@@ -12,12 +12,10 @@ app-compte {
   background:#2d2d2d;}
 
 .container-fluid{
-    /* padding: 40px; */
     background-color: #282c34;
     height: 100%;
     width: 100%;
 	display: block;
-	justify-content: center;
 }
 
 h1 {
@@ -37,8 +35,8 @@ h1 {
 .avatar-upload{
     position: relative;
     max-width: 205px;
-    margin: 50px auto;
-    height: 30%;
+    margin: 20px auto;
+    height: 20%;
 }
 
 .avatar-edit {
@@ -126,4 +124,40 @@ svg{
 		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
 		transform: translatey(0px);
 	}
+}
+
+.compte{
+    display:flex;
+    height: 15%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.separation{
+	margin :10px;
+}
+
+.infos-compte{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.btnEdit{
+    display: flex;
+    justify-content: center;
+}
+
+.retour{
+    color: white;
+    padding: 40px;
+}
+
+.recapEquipe{
+    color: white;
+    padding: 40px;
+    background-color: #282c34;
 }

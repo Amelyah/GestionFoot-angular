@@ -1,0 +1,87 @@
+.container-fluid{
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #282c34; */
+    background-color: #6080cb;
+    flex-direction: column;
+}
+
+h1{
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    color: white;
+}
+
+.background-container{
+    display: flex;
+    justify-content: center;
+    height: 80%;
+    width: 80%;
+    background-image: url("../../assets/medias/img/homeBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-shadow: 0 10px 5px 0 rgba(0, 0, 0, 0.782);
+}
+
+.boxBtn{
+    display: flex;
+    align-items: center;
+}
+
+.btn{
+    border: solid 1px yellow;
+    margin: 40px;
+    padding: 40px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    position: absolute;
+}
+
+p{
+    text-shadow: 2px 5px black;
+    font-size: 30px;
+    transform: rotate(-5deg);
+}
+
+.boxBtnConnexion{
+    position: relative;
+    height: 380px;
+    width: 248px;
+    top: 5vh;
+    right: -49vh;
+}
+
+.boxBtnConnexion:hover{
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.782);
+}
+
+.boxBtnInscription{
+    position: relative;
+    height: 380px;
+    width: 245px;
+    top: 5vh;
+    left: -46vh;
+}
+
+.boxBtnInscription:hover{
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.782);
+}
+
+.btnConnexion{
+    position: relative;
+    top: 49vh;
+    left: 6vh;
+}
+
+.btnInscription{
+    position: relative;
+    top: 49vh;
+    right: -5vh;
+}
