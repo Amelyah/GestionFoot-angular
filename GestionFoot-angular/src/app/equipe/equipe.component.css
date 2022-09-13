@@ -32,3 +32,14 @@
     display: flex;
     justify-content: space-around;
 }
+
+.choix{
+    display: flex;
+    justify-content: space-around;
+    gap: 5%;
+}
+.choix_goal,.choix_defenseur,.choix_milieu,.choix_attaquant{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

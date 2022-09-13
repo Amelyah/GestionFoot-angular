@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Joueur } from '../model';
+import { Equipe, Joueur } from '../model';
 import { EquipeHttpService } from './equipe-http.service';
 
 @Component({
@@ -14,6 +14,16 @@ export class EquipeComponent implements OnInit {
   defenseurs : Array<Joueur>;
   milieux : Array<Joueur>;
   attaquants : Array<Joueur>;
+  equipe : Equipe = new Equipe();
+
+  currentGardien : Joueur;
+  currentDefenseur1 : Joueur;
+  currentDefenseur2 : Joueur;
+  currentMilieu1 : Joueur;
+  currentMilieu2: Joueur;
+  currentAttaquant1 : Joueur;
+  currentAttaquant2 : Joueur;
+  currentEntraineur : Joueur;
 
   constructor(private serviceEquipeHttp : EquipeHttpService) { 
     this.joueurAll();

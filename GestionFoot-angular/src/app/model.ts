@@ -155,3 +155,78 @@ export class Adresse {
 		this.ville = ville;
 	}
 }
+export class Gardien extends Joueur {	
+	
+    private tauxArret : number;
+    private tauxJeuPied : number;
+
+	constructor(id? : number, nom? :string,  prenom?:string, naissance?:string
+        ,physique? : number,technique? : number,tactique? : number, mental?: number,
+        tauxArret? : number, tauxJeuPied?: number){
+		super(id,nom, prenom, naissance,
+		physique ,
+		technique,
+		tactique,
+		mental)
+        this.tauxArret =  tauxArret;
+        this.tauxJeuPied = tauxJeuPied;
+	}
+}
+
+export class Defenseur extends Joueur {	
+	
+	private tauxInterception : number;
+	
+	private capaciteRelance : number;
+
+	constructor(id? : number, nom? :string,  prenom?:string, naissance?:string
+        ,physique? : number,technique? : number,tactique? : number, mental?: number,
+        tauxInterception? : number, capaciteRelance?: number){
+		super(id,nom, prenom, naissance,
+		physique ,
+		technique,
+		tactique,
+		mental)
+        this.tauxInterception =  tauxInterception;
+        this.capaciteRelance = capaciteRelance;
+	}
+}
+
+export class Milieu extends Joueur {	
+    
+	private tauxEspace : number;
+	
+	private tauxTransmissionAttaquant : number;
+
+	constructor(id? : number, nom? :string,  prenom?:string, naissance?:string
+        ,physique? : number,technique? : number,tactique? : number, mental?: number,
+        tauxEspace? : number, tauxTransmissionAttaquant?: number){
+		super(id,nom, prenom, naissance,
+		physique ,
+		technique,
+		tactique,
+		mental)
+        this.tauxEspace =  tauxEspace;
+        this.tauxTransmissionAttaquant = tauxTransmissionAttaquant;
+	}
+}
+
+
+export class Attaquant extends Joueur {	
+	
+    private tauxAssist : number;
+    private tauxBut : number;
+
+	constructor(id? : number, nom? :string,  prenom?:string, naissance?:string
+        ,physique? : number,technique? : number,tactique? : number, mental?: number,
+        tauxAssist? : number, tauxBut?: number){
+		super(id,nom, prenom, naissance,
+		physique ,
+		technique,
+		tactique,
+		mental)
+        this.tauxAssist =  tauxAssist;
+        this.tauxBut = tauxBut;
+	}
+}
+

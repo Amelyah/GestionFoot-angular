@@ -140,6 +140,58 @@
 
 </div>
 </div>
+<p> Compose ton équipe </p>
+<div class="choix">
+    <div class="choix_goal">
+    <select class="form-select" aria-label="Default select example">
+        <option selected>Goal</option>
+        <option *ngFor="let gardien of gardiens" value="1">{{gardien["nom"] | nomRacc : gardien["prenom"]}}</option>
+      </select>
+    </div>
+    <div class="choix_defenseur">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Defenseur n°1</option>
+            <option *ngFor="let defenseur of defenseurs" value="1">{{defenseur["nom"] | nomRacc : defenseur["prenom"]}}</option>
+          </select>
+        <select class="form-select" aria-label="Default select example">
+        <option selected>Defenseur n°2</option>
+
+        <!-- <div *ngIf="true"> -->
+        <div>
+        <option *ngFor="let defenseur of defenseurs" value="1">{{defenseur["nom"] | nomRacc : defenseur["prenom"]}}</option>
+        </div><!-- </div> -->
+        </select>
+    </div>
+    <div class="choix_milieu">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Milieu n°1</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Milieu n°2</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+    </div>
+    <div class="choix_attaquant">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Attaquant n°1</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Attaquant n°2</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+    </div>
+
+</div>
 <!-- gardiens : Array<Joueur>;
     defenseurs : Array<Joueur>;
     milieux : Array<Joueur>;
