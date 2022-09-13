@@ -17,6 +17,15 @@ export abstract class Personne {
     getPrenom() : string {
         return this.prenom;
     }
+    getId() : number|undefined {
+        if(this.id ){
+            return this.id;
+        } else {
+            return undefined;
+        }
+        
+    }
+    
 }
 
 export class Equipe {
@@ -171,6 +180,9 @@ export class Gardien extends Joueur {
         this.tauxArret =  tauxArret;
         this.tauxJeuPied = tauxJeuPied;
 	}
+    getTheId(){
+        return this.getId();
+    }
 }
 
 export class Defenseur extends Joueur {	
@@ -179,7 +191,7 @@ export class Defenseur extends Joueur {
 	
 	private capaciteRelance : number;
 
-	constructor(id? : number, nom? :string,  prenom?:string, naissance?:string
+	constructor(id? : number,nom?: string,  prenom?:string, naissance?:string
         ,physique? : number,technique? : number,tactique? : number, mental?: number,
         tauxInterception? : number, capaciteRelance?: number){
 		super(id,nom, prenom, naissance,
@@ -190,10 +202,16 @@ export class Defenseur extends Joueur {
         this.tauxInterception =  tauxInterception;
         this.capaciteRelance = capaciteRelance;
 	}
+    getTheId(){
+        return this.getId();
+    }
+    chaine(): string {
+        return this.getId()+this.getNom()
+    }
 }
 
 export class Milieu extends Joueur {	
-    
+
 	private tauxEspace : number;
 	
 	private tauxTransmissionAttaquant : number;

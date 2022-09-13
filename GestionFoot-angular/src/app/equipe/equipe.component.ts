@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Equipe, Joueur } from '../model';
+import { Router } from '@angular/router';
+import { Attaquant, Defenseur, Entraineur, Equipe, Gardien, Joueur, Milieu } from '../model';
 import { EquipeHttpService } from './equipe-http.service';
 
 @Component({
@@ -14,18 +15,22 @@ export class EquipeComponent implements OnInit {
   defenseurs : Array<Joueur>;
   milieux : Array<Joueur>;
   attaquants : Array<Joueur>;
-  equipe : Equipe = new Equipe();
+  entraineurs : Array<Entraineur>;
+  equipe : Equipe ;
 
-  currentGardien : Joueur;
-  currentDefenseur1 : Joueur;
-  currentDefenseur2 : Joueur;
-  currentMilieu1 : Joueur;
-  currentMilieu2: Joueur;
-  currentAttaquant1 : Joueur;
-  currentAttaquant2 : Joueur;
-  currentEntraineur : Joueur;
+  currentCouleurEquipe : string;
+  currentClassementEquipe : number;
+  currentPaysEquipe : string;
+  currentIdGardien : number
+  currentIdDefenseur1 : number;
+  currentIdDefenseur2 : number;
+  currentIdMilieu1 : number;
+  currentIdMilieu2: number;
+  currentIdAttaquant1 : number;
+  currentIdAttaquant2 : number;
+  currentIdEntraineur : number;
 
-  constructor(private serviceEquipeHttp : EquipeHttpService) { 
+  constructor(private serviceEquipeHttp : EquipeHttpService, private router : Router) { 
     this.joueurAll();
     
   }
@@ -50,6 +55,10 @@ export class EquipeComponent implements OnInit {
       console.log("mes joueurs : ",resp);
       this.attaquants = resp
      });
+     this.serviceEquipeHttp.getAllEntraineur().subscribe( resp => {
+      console.log("mes  entraineurs : ",resp);
+      this.entraineurs = resp
+     });
   }
   voir(event : Event) {
     console.log("voila mon event : ",event.target["dataset"].toggle);
@@ -58,6 +67,44 @@ export class EquipeComponent implements OnInit {
       btn.style.width = "0%";
     });
     tabJoueur[event.target["dataset"].toggle].style.width = "100%"
+    
+  }
+
+  verificationEquipe() : boolean{
+    if( 
+    this.currentPaysEquipe &&
+    this.currentIdGardien&&
+    this.currentIdDefenseur1 &&
+    this.currentIdDefenseur2 &&
+    this.currentIdMilieu1 &&
+    this.currentIdMilieu2&&
+    this.currentIdAttaquant1 &&
+    this.currentIdAttaquant2 &&
+    this.currentIdEntraineur &&
+    this.currentClassementEquipe){
+      return true;
+    }else{
+      return false
+    }
+    
+  }
+  
+  creerEquipe(){
+    if( this.verificationEquipe() ){
+      this.equipe = new Equipe(this.currentPaysEquipe,this.currentCouleurEquipe,this.currentClassementEquipe,undefined,undefined);
+      this.serviceEquipeHttp.createEquipeMinimum(this.equipe).subscribe( resp => {
+        this.equipe  = resp;
+        this.serviceEquipeHttp.addGardienToEquipe(this.equipe["id"],this.currentIdGardien).subscribe();
+        this.serviceEquipeHttp.addDefenseurToEquipe(this.equipe["id"],this.currentIdDefenseur1).subscribe();
+        this.serviceEquipeHttp.addDefenseurToEquipe(this.equipe["id"],this.currentIdDefenseur2).subscribe();
+        this.serviceEquipeHttp.addMilieuToEquipe(this.equipe["id"],this.currentIdMilieu1).subscribe();
+        this.serviceEquipeHttp.addMilieuToEquipe(this.equipe["id"],this.currentIdMilieu1).subscribe();
+        this.serviceEquipeHttp.addAttaquantToEquipe(this.equipe["id"],this.currentIdAttaquant1).subscribe();
+        this.serviceEquipeHttp.addAttaquantToEquipe(this.equipe["id"],this.currentIdAttaquant2).subscribe();
+        this.router.navigate(['/menu-principal'])
+      });
+
+    }
     
   }
 
