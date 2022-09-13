@@ -11,8 +11,14 @@ import { RegleComponent } from './regle/regle.component';
 import { CompteComponent } from './compte/compte.component';
 import { EntrainementComponent } from './entrainement/entrainement.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { AuthService } from './auth.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CompteHttpService } from './compte-http.service';
+import { APIInterceptor } from './api.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,14 +32,18 @@ import { FooterComponent } from './footer/footer.component';
     CompteComponent,
     EntrainementComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    ConnexionComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService,CompteHttpService,{provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

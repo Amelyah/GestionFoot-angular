@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompteComponent } from './compte/compte.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EntrainementComponent } from './entrainement/entrainement.component';
 import { EquipeComponent } from './equipe/equipe.component';
 import { HomeComponent } from './home/home.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 import { MatchComponent } from './match/match.component';
 import { MenuInscriptionComponent } from './menu-inscription/menu-inscription.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:"match", component: MatchComponent},
   {path:"regles", component: RegleComponent},
   {path:"mon-compte", component: CompteComponent},
-  {path:"entrainement", component: EntrainementComponent}
+  {path:"entrainement", component: EntrainementComponent},
+  {path:"connexion", component: ConnexionComponent},
+  {path:"inscription", component: InscriptionComponent}
 ];
 
 @NgModule({

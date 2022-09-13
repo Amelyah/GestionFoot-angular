@@ -1,0 +1,19 @@
+<h1 style="text-align:center">INSCRIPTION</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="login">Login:</label> <input type="text" class="form-control" id="login" name="login" [(ngModel)]="login" />
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe:</label> <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email (facultatif):</label> <input type="mail" class="form-control" id="email" name="email" [(ngModel)]="email" />
+        </div>
+    </div>
+    <div class="card-footer">
+        <span class="text-danger" *ngIf="loginError">Erreur lors de l'inscription ! Login existant ou mail erroné</span>
+        <button class="btn btn-success btn-lg" (click)="sInscrire()">Je m'inscris !</button>
+    </div>
+</div>
