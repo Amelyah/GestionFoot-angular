@@ -1,1 +1,34 @@
-<p>menu-principal works!</p>
+<!-- Dans le cas où l'utilisateur a déjà une équipe -->
+
+<div class="container-fluid">
+    <div class="containerButton">
+
+      <div class="wrap">
+        <div class="bouncingball"></div>
+        <a [routerLink]="['/mon-compte']"><p class="btnMenu">Mon compte</p></a>
+      </div>
+      <div class="wrap">
+        <div class="bouncingball"></div>
+        <a [routerLink]="['/match']"><p class="btnMenu">Jouer un match</p></a>
+      </div>
+      <div class="wrap">
+        <div class="bouncingball"></div>
+        <a [routerLink]="['/entrainement']"><p class="btnMenu">Entraîner mon équipe</p></a>
+      </div>
+      <div class="wrap">
+        <div class="bouncingball"></div>
+        <a [routerLink]="['/menu-inscription']"><p class="btnMenu">Abandonner mon équipe</p></a>
+      </div>
+      <div class="wrap">
+        <div class="bouncingball"></div>
+        <a [routerLink]="['/regles']"><p class="btnMenu">Règles du jeu</p></a>
+      </div>
+      <div class="wrap">
+        <div class="bouncingball"></div>
+        <a [routerLink]="['/home']"><p class="btnMenu">Déconnexion</p></a>
+      </div>
+
+    </div>
+  </div>
+
+<footer></footer>

@@ -11,15 +11,15 @@ import { MenuPrincipalComponent } from './menu-principal/menu-principal.componen
 import { RegleComponent } from './regle/regle.component';
 
 const routes: Routes = [
-  {path:"/home", component: HomeComponent},
-  {path:"/menu-inscription", component: MenuInscriptionComponent},
-  {path:"/menu-principal", component: MenuPrincipalComponent},
-  {path:"/equipe", component: EquipeComponent},
-  {path:"/dashboard", component: DashboardComponent},
-  {path:"/match", component: MatchComponent},
-  {path:"/regles", component: RegleComponent},
-  {path:"/mon-compte", component: CompteComponent},
-  {path:"/entrainement", component: EntrainementComponent},
+  {path:"home", component: HomeComponent},
+  {path:"menu-inscription", component: MenuInscriptionComponent},
+  {path:"menu-principal", component: MenuPrincipalComponent},
+  {path:"equipe", component: EquipeComponent},
+  {path:"dashboard", component: DashboardComponent},
+  {path:"match", component: MatchComponent},
+  {path:"regles", component: RegleComponent},
+  {path:"mon-compte", component: CompteComponent},
+  {path:"entrainement", component: EntrainementComponent}
 ];
 
 @NgModule({
