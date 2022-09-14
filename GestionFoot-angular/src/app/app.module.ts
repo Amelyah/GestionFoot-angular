@@ -20,6 +20,7 @@ import { UtilisateurHttpService } from './utilisateur-http.service';
 import { APIInterceptor } from './api.interceptor';
 import { CompteHttpService } from './compte/compte-http.service';
 import { CompteComponent } from './compte/compte.component';
+import { HttpEntrainementService } from './entrainement/http-entrainement.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { CompteComponent } from './compte/compte.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService,UtilisateurHttpService,CompteHttpService,
+  providers: [AuthService,UtilisateurHttpService,CompteHttpService,HttpEntrainementService,
     {provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true } ],
   bootstrap: [AppComponent]
 })
