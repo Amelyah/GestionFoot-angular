@@ -28,7 +28,7 @@ export class EntrainementComponent implements OnInit {
       this.formEquipe = resp;
       console.log("mon équipe",this.formEquipe);
     });
-
+    
     // if(this.valueJeux == 0 || this.valueCohesion == 0 || this.valuePressing == 0){
     //   document.getElementById("btnDecrement").setAttribute('disabled', 'disabled');
     // }
@@ -36,6 +36,9 @@ export class EntrainementComponent implements OnInit {
     // if(this.valueJeux == 1 || this.valueCohesion == 1 || this.valuePressing == 1){
     //   document.getElementById("btnIncrement").setAttribute('disabled', 'disabled');
     // }
+  }
+  incr(){
+      this.point = 1- (this.cohesionIncr + this.jeuxIncr + this.pressingIncr )
   }
 
 
