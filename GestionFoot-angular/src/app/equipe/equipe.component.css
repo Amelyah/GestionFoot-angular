@@ -127,3 +127,15 @@
 .equipe_not_complete{
     color: red;
 }
+.container_point{
+    display: flex;
+    justify-content: space-around;
+}
+
+.warning_point{
+    margin-top: 10px;
+    background-color: red;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}

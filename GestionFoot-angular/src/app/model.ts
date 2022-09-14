@@ -46,12 +46,18 @@ export class Equipe {
 	
 	constructor(pays? : string, couleur? : string, classement? : number, 
             listJoueur? : Array<Joueur>,
-			 entraineur? : Entraineur) {
+			 entraineur? : Entraineur,
+			 cohesion? : number,
+			 jeux? : number,
+			 pressing? : number) {
 		this.pays = pays;
 		this.couleur = couleur;
 		this.classement = classement;
 		this.listJoueur = listJoueur;
 		this.entraineur = entraineur;
+		this.cohesion = cohesion;
+		this.jeux = jeux;
+		this.pressing = pressing;
 	}
 }
 

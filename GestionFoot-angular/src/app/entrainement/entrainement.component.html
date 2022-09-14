@@ -1,1 +1,76 @@
-<p>entrainement works!</p>
+<p>entrainement works! {{cohesionIncr}} {{jeuxIncr}} {{pressingIncr}}</p>
+
+
+
+<div class="container-fluid">
+
+    <h1>ENTRAINEMENT DE MON EQUIPE</h1>
+
+
+    <div class="box1">
+        <div class="pointDisponible">
+            <h2>Nombre de points disponible</h2>
+            <div class="pointBox">
+                <div class="points">
+                    <div class="affichagePoint">
+                        <p>{{point}} point</p>
+                    </div>
+                    <a [routerLink]="['/regles']">Comment utiliser mes points ?</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="historiqueMatch">
+            <h2>Historique des mes 3 derniers matchs</h2>
+
+        </div>
+    </div>
+
+    <div class="box2">
+        <div class="bloc">
+            <img src="https://thumbs.dreamstime.com/b/le-football-ou-ballon-de-football-au-d%C3%A9but-d-un-jeu-avec-le-coucher-du-soleil-38302251.jpg" alt="Jeux">
+            <div class="inputBox">
+                <label for="jeux">Jeux de l'équipe : </label><input  *ngIf="formEquipe" type="text" style="width: 30px;" [value]='formEquipe["jeux"]'/><br>
+                <input type="number" id="jeux" step="0.1" min="0" max="1"  [(ngModel)]="jeuxIncr">
+                <!-- <button id="btnDecrement1" (click)="decrement1()">-</button>
+                    <input type="text" [ngModel]="this.valueJeux" style="width: 20px;">
+                <button id="btnIncrement1" (click)="increment1()">+</button> -->
+            </div>
+        </div>
+        <div class="bloc">
+            <img src="https://images.unsplash.com/photo-1587329310686-91414b8e3cb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Cohesion">
+            <div class="inputBox">
+                <label for="cohesion">Cohésion de l'équipe : </label><input *ngIf="formEquipe" type="text" style="width: 30px;" [value]='formEquipe["cohesion"]'/><br>
+                <input type="number" id="cohesion"step="0.1" min="0" max="1"[(ngModel)]="cohesionIncr"  >
+                <!-- <button id="btnDecrement2" (click)="decrement2()">-</button>
+                    <input type="text" [ngModel]="this.valueCohesion" style="width: 20px;">
+                <button id="btnIncrement2" (click)="increment2()">+</button> -->
+            </div>
+        </div>
+        <div class="bloc">
+            <img src="https://images.unsplash.com/photo-1599158150601-1417ebbaafdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Pressing">
+            <div class="inputBox">
+                <label for="pressing">Pressing de l'équipe : </label><input  *ngIf="formEquipe" type="text" style="width: 30px;"  [value]='formEquipe["pressing"]'/><br>
+                <input type="number" id="pressing" step="0.1" min="0" max="1" [(ngModel)]="pressingIncr" >
+                <!-- <button id="btnDecrement3" (click)="decrement3()">-</button>
+                    <input type="text" [ngModel]="this.valuePressing" style="width: 20px;">
+                <button id="btnIncrement3" (click)="increment3()">+</button> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="box3">
+        <a >
+            <div class="btnBox3">Valider l'entrainement</div>
+        </a>
+        <a routerLink="['/menu-principal']">
+            <div class="btnBox3">Annuler</div>
+        </a>
+    </div>
+
+
+
+    
+
+</div>
+

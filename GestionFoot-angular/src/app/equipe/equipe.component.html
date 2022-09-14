@@ -271,6 +271,25 @@
         
     </select>
 </div>
+<div>
+  <p> Vous disposez de 1 points, à vous de les répartir convenablement suivant votre philosophie de jeu</p>
+</div>
+
+<div class="container_point">
+<div class="form-group">
+  <label for="cohesion">Point cohésion : </label>
+  <input style=" width: 300px;" type="number" class="form-control" id="cohesion"  [(ngModel)]="cohesion">
+</div>
+<div class="form-group">
+  <label for="jeux">Point jeux : </label>
+  <input style=" width: 300px;" type="number" class="form-control" id="jeux"  [(ngModel)]="jeux">
+</div>
+<div class="form-group">
+  <label for="pressing">Point pressing : </label>
+  <input style=" width: 300px;" type="number" class="form-control" id="pressing"  [(ngModel)]="pressing">
+</div>
+</div>
+<p *ngIf="(jeux+cohesion+pressing) > 1 " class="warning_point"> Vous avez utilisé trop de point, n'hésitez pas à utilisé des chiffre à virgule ( Exemple :0.2 )</p>
 
 <div *ngIf="!verificationEquipe()" class="equipe_not_complete"> Equipe incomplète, veuillez renseigner toutes les données</div>
 <div *ngIf="!currentPaysEquipe" class="equipe_not_complete">Le Pays de l'équipe n'est pas renseigné</div>
@@ -278,7 +297,7 @@
 <div *ngIf="!(currentIdGardien && currentIdDefenseur1 && currentIdDefenseur2 && currentIdMilieu1 && currentIdMilieu2&& currentIdAttaquant1 && currentIdAttaquant2 && currentIdEntraineur)" class="equipe_not_complete"> Tous les joueurs de l'équipe ne sont pas renseigné</div>
 
     
-<button type="button" (click)="creerEquipe()" class="btn btn-primary boostrapButton">
+<button type="button" [disabled]="!verificationEquipe() ? 'disabled' : null" (click)="creerEquipe()" class="btn btn-primary boostrapButton">
     Créer
 </button>
 <button type="button" class="btn btn-primary boostrapButton">

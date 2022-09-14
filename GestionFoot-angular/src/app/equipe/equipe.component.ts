@@ -30,6 +30,11 @@ export class EquipeComponent implements OnInit {
   currentIdAttaquant2 : number;
   currentIdEntraineur : number;
 
+  cohesion : number = 0;
+	jeux : number  = 0 ;
+	pressing : number  = 0 ;
+
+
   constructor(private serviceEquipeHttp : EquipeHttpService, private router : Router) { 
     this.joueurAll();
     
@@ -81,31 +86,39 @@ export class EquipeComponent implements OnInit {
     this.currentIdAttaquant1 &&
     this.currentIdAttaquant2 &&
     this.currentIdEntraineur &&
-    this.currentClassementEquipe){
+    this.currentClassementEquipe &&
+    this.verificationPoint()
+    ){
       return true;
     }else{
       return false
     }
     
   }
+  verificationPoint(){
+    return (this.cohesion + this.jeux + this.pressing)<= 1
+  }
   
   creerEquipe(){
     if( this.verificationEquipe() ){
-      this.equipe = new Equipe(this.currentPaysEquipe,this.currentCouleurEquipe,this.currentClassementEquipe,undefined,undefined);
+      this.equipe = new Equipe(this.currentPaysEquipe,this.currentCouleurEquipe,this.currentClassementEquipe,undefined,undefined,
+        this.cohesion,this.jeux,this.pressing);
       this.serviceEquipeHttp.createEquipeMinimum(this.equipe).subscribe( resp => {
         this.equipe  = resp;
         this.serviceEquipeHttp.addGardienToEquipe(this.equipe["id"],this.currentIdGardien).subscribe();
         this.serviceEquipeHttp.addDefenseurToEquipe(this.equipe["id"],this.currentIdDefenseur1).subscribe();
         this.serviceEquipeHttp.addDefenseurToEquipe(this.equipe["id"],this.currentIdDefenseur2).subscribe();
         this.serviceEquipeHttp.addMilieuToEquipe(this.equipe["id"],this.currentIdMilieu1).subscribe();
-        this.serviceEquipeHttp.addMilieuToEquipe(this.equipe["id"],this.currentIdMilieu1).subscribe();
+        this.serviceEquipeHttp.addMilieuToEquipe(this.equipe["id"],this.currentIdMilieu2).subscribe();
         this.serviceEquipeHttp.addAttaquantToEquipe(this.equipe["id"],this.currentIdAttaquant1).subscribe();
         this.serviceEquipeHttp.addAttaquantToEquipe(this.equipe["id"],this.currentIdAttaquant2).subscribe();
+        this.serviceEquipeHttp.addEntraineurToEquipe(this.equipe["id"],this.currentIdEntraineur).subscribe();
         this.router.navigate(['/menu-principal'])
       });
 
     }
     
   }
+  
 
 }

@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { MatchComponent } from './match/match.component';
 import { MenuInscriptionComponent } from './menu-inscription/menu-inscription.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
+import { RecapitulatifComponent } from './recapitulatif/recapitulatif.component';
 import { RegleComponent } from './regle/regle.component';
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"regles", component: RegleComponent},
   {path:"mon-compte", component: CompteComponent},
   {path:"entrainement", component: EntrainementComponent},
+  {path:"recapitulatif", component: RecapitulatifComponent}
 ];
 
 @NgModule({

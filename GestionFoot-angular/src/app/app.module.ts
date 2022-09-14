@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { JoueurRaccPipe } from './joueur-racc.pipe';
 import { NomRaccPipe } from './nom-racc.pipe';
+import { RecapitulatifComponent } from './recapitulatif/recapitulatif.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NomRaccPipe } from './nom-racc.pipe';
     EntrainementComponent,
     DashboardComponent,
     JoueurRaccPipe,
-    NomRaccPipe
+    NomRaccPipe,
+    RecapitulatifComponent
   ],
   imports: [
     BrowserModule,
