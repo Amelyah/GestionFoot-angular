@@ -10,26 +10,22 @@ import { MatchComponent } from './match/match.component';
 import { RegleComponent } from './regle/regle.component';
 import { EntrainementComponent } from './entrainement/entrainement.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-<<<<<<< HEAD
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AuthService } from './auth.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UtilisateurHttpService } from './utilisateur-http.service';
 import { APIInterceptor } from './api.interceptor';
 import { CompteHttpService } from './compte/compte-http.service';
 import { CompteComponent } from './compte/compte.component';
 import { HttpEntrainementService } from './entrainement/http-entrainement.service';
-=======
 import { EquipeHttpService } from './equipe/equipe-http.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JoueurRaccPipe } from './joueur-racc.pipe';
 import { NomRaccPipe } from './nom-racc.pipe';
 import { RecapitulatifComponent } from './recapitulatif/recapitulatif.component';
->>>>>>> main
 
 @NgModule({
   declarations: [
@@ -42,36 +38,27 @@ import { RecapitulatifComponent } from './recapitulatif/recapitulatif.component'
     RegleComponent,
     EntrainementComponent,
     DashboardComponent,
-<<<<<<< HEAD
     FooterComponent,
     ConnexionComponent,
     InscriptionComponent,
-    CompteComponent
-=======
+    CompteComponent,
     JoueurRaccPipe,
     NomRaccPipe,
     RecapitulatifComponent
->>>>>>> main
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule
   ],
   providers: [AuthService,UtilisateurHttpService,CompteHttpService,HttpEntrainementService,
-    {provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true } ],
-=======
+    EquipeHttpService,
+    {provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true } ,
     FormsModule, 
     HttpClientModule
   ],
-  providers: [
-    
-    EquipeHttpService
-  ],
->>>>>>> main
   bootstrap: [AppComponent]
 })
 export class AppModule { }

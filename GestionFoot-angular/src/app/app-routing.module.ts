@@ -23,12 +23,10 @@ const routes: Routes = [
   {path:"regles", component: RegleComponent},
   {path:"mon-compte", component: CompteComponent},
   {path:"entrainement", component: EntrainementComponent},
-<<<<<<< HEAD
   {path:"connexion", component: ConnexionComponent},
-  {path:"inscription", component: InscriptionComponent}
-=======
+  {path:"inscription", component: InscriptionComponent},
   {path:"recapitulatif", component: RecapitulatifComponent}
->>>>>>> main
+
 ];
 
 @NgModule({
