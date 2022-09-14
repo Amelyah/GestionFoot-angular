@@ -1,1 +1,44 @@
-<p>match works!</p>
+<p> Voici ton équipe adverse !</p>
+
+<p> L'équipe </p>
+<div *ngIf="adversaireGardien &&  adversaireDefenseur1 &&
+adversaireDefenseur2 &&
+adversaireMilieu1 &&
+adversaireMilieu2 &&
+adversaireAttaquant1 &&
+adversaireAttaquant2 &&
+adversaireEntraineur  " class="choix">
+    
+    <div> {{adversaireGardien["nom"] | nomRacc : adversaireGardien["prenom"]}} </div>
+
+    <div> {{adversaireDefenseur1["nom"] | nomRacc : adversaireDefenseur1["prenom"]}} </div>
+    <div> {{adversaireDefenseur2["nom"] | nomRacc : adversaireDefenseur2["prenom"]}} </div>  
+
+    <div> {{adversaireMilieu1["nom"] | nomRacc : adversaireMilieu1["prenom"]}} </div>
+    <div> {{adversaireMilieu2["nom"] | nomRacc : adversaireMilieu2["prenom"]}} </div>
+
+    <div> {{adversaireAttaquant1["nom"] | nomRacc : adversaireAttaquant1["prenom"]}} </div>
+    <div> {{adversaireAttaquant2["nom"] | nomRacc : adversaireAttaquant2["prenom"]}} </div>
+    <div> {{adversaireEntraineur["nom"] | nomRacc : adversaireEntraineur["prenom"]}} </div>
+
+
+</div>
+<p> La startégie de l'adeversaire est :  {{stategieAdverse}}</p>
+<div class="strategie">
+    <label for="choix_pays_equipe">Choix de la startégies :</label>
+    <select name="select" style=" width: 300px;" id="choix_pays_equipe" class="form-select" aria-label="Default select example" [(ngModel)]="strategieUser">
+        <option value='Attaque' selected>Attaque</option>
+        <option value='Defense'>Défence</option>
+        <option value='Milieu'>Milieu</option>
+        
+    </select>
+</div>
+<div>L'arbitre du match est : </div>
+<p *ngIf="arbitre">{{arbitre["nom"] | nomRacc : arbitre["prenom"]}}</p>
+<p *ngIf="equipeAdverse">{{equipeAdverse["id"]}}</p>
+
+<button type="button" class="btn btn-primary boostrapButton" (click)="directionRecap()">
+    Joueur Match
+</button>
+
+

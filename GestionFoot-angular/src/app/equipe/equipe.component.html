@@ -1,1 +1,305 @@
-<p>equipe works!</p>
+<h1 class="equipe_title"> Créer ton équipe</h1>
+<div class="main_equipe">
+<div class="tableau">
+<div class="equipe_joueur">
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Physique</th>
+            <th scope="col">Technique</th>
+            <th scope="col">Tactique</th>
+            <th scope="col">Mental</th>
+            <th scope="col">Taux d'Arret</th>
+            <th scope="col">Jeux au pied</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let gardien of gardiens">
+            <th scope="row">{{gardien["id"]}}</th>
+            <td>{{gardien["nom"] | nomRacc : gardien["prenom"]}}</td>
+            <td>{{gardien["physique"]}}</td>
+            <td>{{gardien["technique"]}}</td>
+            <td>{{gardien["tactique"]}}</td>
+            <td>{{gardien["mental"]}}</td>
+            <td>{{gardien["jeuPied"]}}</td>
+            <td>{{gardien["nbArret"]}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+<br>
+<div class="equipe_joueur" >
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">physique</th>
+            <th scope="col">technique</th>
+            <th scope="col">tactique</th>
+            <th scope="col">mental</th>
+            <th scope="col">Taux d'interception</th>
+            <th scope="col">Taux de relance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let defenseur of defenseurs">
+            <th scope="row">{{defenseur["id"]}}</th>
+            <td>{{defenseur["nom"] | nomRacc : defenseur["prenom"]}}</td>
+            <td>{{defenseur["physique"]}}</td>
+            <td>{{defenseur["technique"]}}</td>
+            <td>{{defenseur["tactique"]}}</td>
+            <td>{{defenseur["mental"]}}</td>
+            <td>{{defenseur["tauxInterception"]}}</td>
+            <td>{{defenseur["capaciteRelance"]}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+<br>
+<div class="equipe_joueur" >
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">physique</th>
+            <th scope="col">technique</th>
+            <th scope="col">tactique</th>
+            <th scope="col">mental</th>
+            <th scope="col">Espace occupé</th>
+            <th scope="col">Jeux de l'avant</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let milieu of milieux">
+            <th scope="row">{{milieu["id"]}}</th>
+            <td>{{milieu["nom"] | nomRacc : milieu["prenom"]}}</td>
+            <td>{{milieu["physique"]}}</td>
+            <td>{{milieu["technique"]}}</td>
+            <td>{{milieu["tactique"]}}</td>
+            <td>{{milieu["mental"]}}</td>
+            <td>{{milieu["tauxEspace"]}}</td>
+            <td>{{milieu["tauxTransmissionAttaquant"]}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+<br>
+<div class="equipe_joueur" >
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">physique</th>
+            <th scope="col">technique</th>
+            <th scope="col">tactique</th>
+            <th scope="col">mental</th>
+            <th scope="col">Taux d'assist</th>
+            <th scope="col">Taux but</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let attaquant of attaquants">
+            <th scope="row">{{attaquant["id"]}}</th>
+            <td>{{attaquant["nom"] | nomRacc : attaquant["prenom"]}}</td>
+            <td>{{attaquant["physique"]}}</td>
+            <td>{{attaquant["technique"]}}</td>
+            <td>{{attaquant["tactique"]}}</td>
+            <td>{{attaquant["mental"]}}</td>
+            <td>{{attaquant["tauxAssist"]}}</td>
+            <td>{{attaquant["tauxBut"]}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+</div>
+
+<div class="container_bouton_display_tableau">
+
+    <button type="button" (click)="voir($event)" class="btn btn-primary boostrapButton" data-toggle="0" aria-pressed="false" autocomplete="off">
+        Voir gardien
+      </button>
+      <button type="button"(click)="voir($event)" class="btn btn-primary boostrapButton" data-toggle="1" aria-pressed="false" autocomplete="off">
+        Voir défenseurs
+      </button>
+      <button type="button" (click)="voir($event)" class="btn btn-primary boostrapButton" data-toggle="2" aria-pressed="false" autocomplete="off">
+        Voir millieux
+      </button>
+      <button type="button"  (click)="voir($event)" class="btn btn-primary boostrapButton" data-toggle="3" aria-pressed="false" autocomplete="off">
+        Voir attaquants
+      </button>
+
+
+</div>
+</div>
+<p> Compose ton équipe </p>
+<div class="choix">
+    <div class="choix_goal">
+    <label for="choix_goal">Choix goal:</label>
+    <select id="choix_goal" class="form-select" aria-label="Default select example" [(ngModel)]="currentIdGardien">
+        <option *ngFor="let gardien of gardiens" [value]='gardien["id"]'>{{gardien["nom"] | nomRacc : gardien["prenom"]}} {{gardien["nom"]}}</option>
+      </select>
+    </div>
+    <div class="choix_defenseur">
+        <label for="choix_defenseur1">Choix défenseur n°1:</label>
+        <select  id="choix_defenseur1" class="form-select" aria-label="Default select example" name="def" [(ngModel)]="currentIdDefenseur1">
+            <option *ngFor="let defenseur1 of defenseurs" [value]='defenseur1["id"]'>{{defenseur1["nom"] | nomRacc : defenseur1["prenom"]}}</option>
+        </select>
+        <label for="choix_defenseur2">Choix défenseur n°2:</label>
+        <select  id="choix_defenseur2" class="form-select" choix_defenseurclass="form-select" aria-label="Default select example" [(ngModel)]="currentIdDefenseur2">
+            <option *ngFor="let defenseur2 of defenseurs"  [ngClass]='{"notSelect" : defenseur2["id"] == currentIdDefenseur1}' [value]='defenseur2["id"]'>{{defenseur2["nom"] | nomRacc : defenseur2["prenom"]}}</option>
+        </select>
+    </div>
+    <div class="choix_milieu">
+        <label for="choix_milieu1">Choix Milieu n°1:</label>
+        <select id="choix_milieu1" class="form-select" aria-label="Default select example" name="def" [(ngModel)]="currentIdMilieu1">
+            <option *ngFor="let milieu1 of milieux" [value]='milieu1["id"]'>{{milieu1["nom"] | nomRacc : milieu1["prenom"]}}</option>
+        </select>
+        <label for="choix_milieu2">Choix Milieu n°2:</label>
+        <select id="choix_milieu2" class="form-select" aria-label="Default select example" [(ngModel)]="currentIdMilieu2">
+            <option *ngFor="let milieu2 of milieux"  [ngClass]='{"notSelect" : milieu2["id"] == currentIdMilieu1}' [value]='milieu2["id"]'>{{milieu2["nom"] | nomRacc : milieu2["prenom"]}}</option>
+        </select>
+    </div>
+    <div class="choix_attaquant">
+        <label for="choix_attaquant1">Choix Attaquant n°1:</label>
+        <select id="choix_attaquant1" class="form-select" aria-label="Default select example" name="def" [(ngModel)]="currentIdAttaquant1">
+            <option *ngFor="let attaquant1 of attaquants" [value]='attaquant1["id"]'>{{attaquant1["nom"] | nomRacc : attaquant1["prenom"]}}</option>
+        </select>
+        <label for="choix_attaquant2">Choix Attaquant n°2:</label>
+        <select id="choix_attaquant2" class="form-select" aria-label="Default select example" [(ngModel)]="currentIdAttaquant2">
+            <option *ngFor="let attaquant2 of attaquants"  [ngClass]='{"notSelect" : attaquant2["id"] == currentIdAttaquant1}' [value]='attaquant2["id"]'>{{attaquant2["nom"] | nomRacc : attaquant2["prenom"]}}</option>
+        </select>
+    </div>
+
+</div>
+<!-- <input *ngIf="currentIdGardien" type="text" name="login" [value]="currentIdGardien"> -->
+
+<div class="container_terrain">
+<div class="container_terrain_block">
+    <img class="container_terrain_block_img" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f1/TERRAIN_FOOTBALL.svg/434px-TERRAIN_FOOTBALL.svg.png" alt="">
+</div>
+<svg *ngIf="currentIdGardien" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill joueur_gardien_svg" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg>
+
+<svg *ngIf="currentIdDefenseur1" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill joueur_defenseur1_svg" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg>
+  <svg *ngIf="currentIdDefenseur2"  xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill joueur_defenseur2_svg" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg>
+  <svg *ngIf="currentIdMilieu1" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill joueur_milieu1_svg" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg>
+  <svg *ngIf="currentIdMilieu2" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill joueur_milieu2_svg" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg>
+  <svg *ngIf="currentIdAttaquant1" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill joueur_attaquant1_svg" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg>
+  <svg *ngIf="currentIdAttaquant2" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill joueur_attaquant2_svg" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg>
+
+</div>
+
+<div class="entraineur">
+
+    <table class="table table-dark tablescroll">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Pédagogie</th>
+            <th scope="col">Expérience</th>
+            <th scope="col">Ecoute</th>
+            <th scope="col">Maitrise technique</th>
+            <th scope="col">Maitrise tactique</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entraineur of entraineurs">
+            <th scope="row">{{entraineur["id"]}}</th>
+            <td>{{entraineur["nom"] | nomRacc : entraineur["prenom"]}}</td>
+            <td>{{entraineur["pedagogie"]}}</td>
+            <td>{{entraineur["experience"]}}</td>
+            <td>{{entraineur["ecoute"]}}</td>
+            <td>{{entraineur["maitriseTechnique"]}}</td>
+            <td>{{entraineur["maitriseTactique"]}}</td>
+          </tr>	
+          
+        </tbody>
+      </table>
+      <div class="choix_entraineur">
+        <label style="white-space: nowrap;
+        margin-top: 30%;" for="choix_entraineur">Choix Entraineur :</label>
+        <select id="choix_entraineur" class="form-select" aria-label="Default select example" [(ngModel)]="currentIdEntraineur">
+            <option *ngFor="let entraineur of entraineurs" [value]='entraineur["id"]'>{{entraineur["nom"] | nomRacc : entraineur["prenom"]}}</option>
+          </select>
+     </div>
+</div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Classement</label>
+    <input style=" width: 300px;" type="number" class="form-control" id="exampleInputEmail1"  [(ngModel)]="currentClassementEquipe">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Couleur : </label>
+    <input style=" width: 300px;" type="color" class="form-control" id="exampleInputEmail1"  [(ngModel)]="currentCouleurEquipe">
+  </div>
+  <div class="choix_pays_equipe">
+    <label for="choix_pays_equipe">Choix du Pays :</label>
+    <select style=" width: 300px;" id="choix_pays_equipe" class="form-select" aria-label="Default select example" [(ngModel)]="currentPaysEquipe">
+        <option value='France'>France</option>
+        <option value='Espagne'>Espagne</option>
+        <option value='Norvege'>Norvege</option>
+        <option value='Allemagne'>Allemagne</option>
+        <option value='PaysBas'>Pays-Bas</option>
+        <option value='Grece'>Grece</option>
+        <option value='Finlande'>Finlande</option>
+        <option value='Portugal'>Portugal</option>
+        <option value='Belgique'>Belgique</option>
+        
+    </select>
+</div>
+<div>
+  <p> Vous disposez de 1 points, à vous de les répartir convenablement suivant votre philosophie de jeu</p>
+</div>
+
+<div class="container_point">
+<div class="form-group">
+  <label for="cohesion">Point cohésion : </label>
+  <input style=" width: 300px;" type="number" class="form-control" id="cohesion"  [(ngModel)]="cohesion">
+</div>
+<div class="form-group">
+  <label for="jeux">Point jeux : </label>
+  <input style=" width: 300px;" type="number" class="form-control" id="jeux"  [(ngModel)]="jeux">
+</div>
+<div class="form-group">
+  <label for="pressing">Point pressing : </label>
+  <input style=" width: 300px;" type="number" class="form-control" id="pressing"  [(ngModel)]="pressing">
+</div>
+</div>
+<p *ngIf="(jeux+cohesion+pressing) > 1 " class="warning_point"> Vous avez utilisé trop de point, n'hésitez pas à utilisé des chiffre à virgule ( Exemple :0.2 )</p>
+
+<div *ngIf="!verificationEquipe()" class="equipe_not_complete"> Equipe incomplète, veuillez renseigner toutes les données</div>
+<div *ngIf="!currentPaysEquipe" class="equipe_not_complete">Le Pays de l'équipe n'est pas renseigné</div>
+<div *ngIf="!currentIdEntraineur" class="equipe_not_complete">L'entraineur de l'équipe n'est pas renseigné</div>
+<div *ngIf="!(currentIdGardien && currentIdDefenseur1 && currentIdDefenseur2 && currentIdMilieu1 && currentIdMilieu2&& currentIdAttaquant1 && currentIdAttaquant2 && currentIdEntraineur)" class="equipe_not_complete"> Tous les joueurs de l'équipe ne sont pas renseigné</div>
+
+    
+<button type="button" [disabled]="!verificationEquipe() ? 'disabled' : null" (click)="creerEquipe()" class="btn btn-primary boostrapButton">
+    Créer
+</button>
+<button type="button" class="btn btn-primary boostrapButton">
+    Annuler
+</button>

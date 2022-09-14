@@ -1,0 +1,141 @@
+.equipe_title{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 358px;
+    background-color: #009300;
+    color: white;
+    padding: 5px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.boostrapButton{
+    background-color: #009300;
+    color: white;
+
+}
+.main_equipe{
+    display: flex;
+}
+
+.tableau{
+    width: 80%;
+    display: flex;
+}
+.container_bouton_display_tableau{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+.equipe_joueur{
+    overflow-y: scroll;
+    max-height: 250px;
+    /* width: 465px; */
+    width: 0%;
+    font-size: 0.7em;
+    transition: all 1s ease-in-out;
+}
+.equipe_joueur_toggle{
+    width: 100%;
+}
+.container_bouton_display_tableau{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.choix{
+    display: flex;
+    justify-content: space-around;
+    gap: 5%;
+}
+.choix_goal,.choix_defenseur,.choix_milieu,.choix_attaquant{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.notSelect{
+    display: none;
+    background-color: red;
+}
+.container_terrain_block_img{
+    width: 100%;
+    transform: rotate(90deg);
+}    
+.container_terrain_block{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 20%;
+
+}
+.container_terrain{
+    position : relative;
+    height: 400px;
+}
+.container_terrain_block_img{
+    width: 400px;
+}
+.joueur_gardien_svg, .joueur_defenseur1_svg, .joueur_defenseur2_svg, .joueur_milieu1_svg
+, .joueur_milieu2_svg, .joueur_attaquant1_svg, .joueur_attaquant2_svg {
+    position: absolute;
+    
+}
+.joueur_gardien_svg{
+    right: 62%;
+    bottom: 30%;
+}
+.joueur_defenseur1_svg{
+    top: 35%;
+    right: 55%;
+}
+
+.joueur_defenseur2_svg{
+    top: 85%;
+    right: 55%;
+}
+.joueur_milieu1_svg{
+    top: 55%;
+    right: 43%;
+}
+.joueur_milieu2_svg{
+    top: 69%;
+    right: 43%;
+}
+.joueur_attaquant1_svg{
+    top: 39%;
+    right: 32%;
+}
+.joueur_attaquant2_svg{
+    top: 81%;
+    right: 32%;
+}
+.entraineur{
+    display: flex;
+    gap: 20px;
+    margin-top: 100px;
+    width: 560px;
+    /* overflow-y: scroll; */
+}
+.tablescroll{
+    overflow-y: scroll;
+}
+.choix_entraineur{
+    width: 200px;
+} 
+.equipe_not_complete{
+    color: red;
+}
+.container_point{
+    display: flex;
+    justify-content: space-around;
+}
+
+.warning_point{
+    margin-top: 10px;
+    background-color: red;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
