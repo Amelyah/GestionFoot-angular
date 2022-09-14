@@ -23,23 +23,6 @@ export class HttpEntrainementService {
     });
   }
 
-  findById(id: number): Observable<Equipe> {
-    return this.http.get<Equipe>(this.apiPath+id);
-  }
-
-  save(equipe: Equipe) {
-    if(equipe.id) { // modification
-      this.http.put<Equipe>(this.apiPath + equipe.id, equipe)
-        .subscribe(resp => {
-          this.load();
-        });
-    } else { // création
-      this.http.post<Equipe>(this.apiPath, equipe)
-        .subscribe(resp => {
-          this.load();
-        });
-    }
-  }
 
   entrainer(jeux:number, cohesion:number, pressing: number){
     // this.equipe.jeux = this.equipe.jeux + jeux;

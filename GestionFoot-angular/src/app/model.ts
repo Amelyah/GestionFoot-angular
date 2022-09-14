@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export class Compte {
     id : number;
     version: number;
@@ -17,25 +16,6 @@ export class Compte {
     }
 }
 
-export class Equipe {
-    id : number;
-    pays : string ;
-    classement : number;
-    couleur : string;
-    cohesion : number;
-    jeux : number;
-    pressing : number;
-
-    constructor(pays? : string, couleur? : string, classement? : number, cohesion? : number, jeux? : number, pressing? : number) {
-        this.pays = pays;
-        this.couleur = couleur;
-        this.classement = classement;
-        this.cohesion = cohesion;
-        this.jeux = jeux;
-        this.pressing = pressing;
-    }
-}
-=======
 export abstract class Personne {
     private id : number;
 	private  nom : string;
@@ -291,5 +271,3 @@ export class Attaquant extends Joueur {
         this.tauxBut = tauxBut;
 	}
 }
-
->>>>>>> main
