@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-regle',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
+
+  auth : AuthService = this.authService;
+
 
   ngOnInit(): void {
   }

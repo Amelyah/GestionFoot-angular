@@ -1,4 +1,4 @@
-<h1 style="text-align:center">CONNEXION</h1>
+<!--<h1 style="text-align:center">CONNEXION</h1>
 
 <div class="card mt-3">
     <div class="card-header bg-primary text-white display-6">Identification</div>
@@ -13,5 +13,29 @@
     <div class="card-footer">
         <span class="text-danger" *ngIf="loginError">Login / Mot de passe inconnu</span>
         <button class="btn btn-success btn-lg" (click)="seConnecter()">Connexion</button>
+    </div>
+</div>-->
+
+
+
+<div class="container-fluid">
+    <div class="container-form">
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <form>
+            <h3>CONNEXION</h3>
+
+            <label for="login">Login</label>
+            <input type="text" placeholder="Login" id="login" name="login" [(ngModel)]="login">
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password" [(ngModel)]="password">
+
+            <span class="text-danger" *ngIf="loginError">Login / Mot de passe inconnu</span>
+            <button (click)="seConnecter()">Je me connecte !</button>
+            <p>Pas encore inscrit ? &nbsp; <a [routerLink]="['/inscription']">Je m'inscris</a></p>
+        </form>
     </div>
 </div>

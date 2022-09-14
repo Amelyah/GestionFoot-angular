@@ -2,8 +2,9 @@
 
 <h1>GUIDE UTILISATEUR</h1>
 
-<a [routerLink]="['/menu-inscription']"><p class="btnMenu">Retour</p></a>
-<a [routerLink]="['/menu-principal']"><p class="btnMenu">Retour</p></a>
+<a class="retour" *ngIf="auth.compte.hasEquipe" [routerLink]="['/menu-principal']">Retour</a>
+<a class="retour" *ngIf="!auth.compte.hasEquipe" [routerLink]="['/menu-inscription']">Retour</a>
+
 
 <div class="containerGuideUser">
 
