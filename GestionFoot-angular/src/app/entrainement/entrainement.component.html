@@ -1,5 +1,6 @@
 
 <p>entrainement works! {{cohesionIncr}} {{jeuxIncr}} {{pressingIncr}}</p>
+<p>L'id de mon equipe {{idEquipeCourant}}</p>
 
 <div class="container-fluid">
 
@@ -12,7 +13,7 @@
             <div class="pointBox">
                 <div class="points">
                     <div class="affichagePoint">
-                        <input type="number" [value]="point" [(ngModel)]="point">
+                        <!-- <input type="number" [value]="point" [(ngModel)]="point"> -->
                         <p>{{point}} point</p>
                     </div>
                     <a [routerLink]="['/regles']">Comment utiliser mes points ?</a>
@@ -49,9 +50,9 @@
             </div>
         </div>
     </div>
-
+<div *ngIf="point<0" class="warning"> attention ! vous avez distribuez trop de point </div>
     <div class="box3">
-        <!-- <a [href]="entrainerEquipe()">
+        <!-- <a [href]="entrainerEquipe() ">
             <div class="btnBox3">Valider l'entrainement</div>
         </a> -->
         <a routerLink="['/menu-principal']">
@@ -64,7 +65,3 @@
     
 
 </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> main

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Equipe } from '../model';
 import { HttpEntrainementService } from './http-entrainement.service';
 import { EquipeHttpService } from '../equipe/equipe-http.service';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -17,10 +18,14 @@ export class EntrainementComponent implements OnInit {
   cohesionIncr : number = 0;
   jeuxIncr : number = 0;
   pressingIncr : number = 0;
+  idEquipeCourant : number = 0;
 
   point: number = (1-this.cohesionIncr - this.jeuxIncr - this.pressingIncr );
  
-  constructor(private entrainementHttpService : EquipeHttpService){ }
+  constructor(private entrainementHttpService : EquipeHttpService,
+    private authService : AuthService){ 
+      this.idEquipeCourant = this.authService.compte.equipe["id"];
+    }
 
 
   ngOnInit(): void {
@@ -31,7 +36,7 @@ export class EntrainementComponent implements OnInit {
   }
 
   incr(){
-      this.point = 1- (this.cohesionIncr + this.jeuxIncr + this.pressingIncr )
+      this.point =  Number((1 - (this.cohesionIncr + this.jeuxIncr + this.pressingIncr)).toFixed(1));
   }
 
   // entrainerEquipe(){

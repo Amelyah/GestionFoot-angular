@@ -26,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JoueurRaccPipe } from './joueur-racc.pipe';
 import { NomRaccPipe } from './nom-racc.pipe';
 import { RecapitulatifComponent } from './recapitulatif/recapitulatif.component';
+import { RecapService } from './recapitulatif/recap.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { RecapitulatifComponent } from './recapitulatif/recapitulatif.component'
     FormsModule
   ],
   providers: [AuthService,UtilisateurHttpService,CompteHttpService,HttpEntrainementService,
-    EquipeHttpService,
+    EquipeHttpService,RecapService,
     {provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true } ,
     FormsModule, 
     HttpClientModule

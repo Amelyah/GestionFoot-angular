@@ -114,6 +114,11 @@ label{
    color: white; 
 }
 
+.warning{
+    color: white;
+    background-color: red;
+}
+
 
 
 /* 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RecapService } from './recap.service';
 
 @Component({
   selector: 'app-recapitulatif',
@@ -15,7 +16,7 @@ export class RecapitulatifComponent implements OnInit {
   strategieCourante : string ;
   strategieAdversaire : string ;
 
-  constructor(private route : ActivatedRoute) { 
+  constructor(private route : ActivatedRoute,private recapService :RecapService) { 
       this.route.queryParams.subscribe( resp => {
         this.matchCourant = resp["idMatch"];
         this.idEquieCourant = resp["idEquipeCourante"];
@@ -24,6 +25,7 @@ export class RecapitulatifComponent implements OnInit {
         this.strategieCourante = resp["strategieUser"];
         this.strategieAdversaire = resp["strategieAdverse"];
         console.log("bouooouuu : ",this.strategieAdversaire);
+        this.jouerMatch();
       });
 
 
@@ -32,47 +34,20 @@ export class RecapitulatifComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // jouerMatch(strategie : string){
-  //   switch(strategie){
-  //     case this.strategieCourante:
-  //       this.matchService.lancerStrategieAttaquant();
-
-  //       this.http.getByIdWithJoueur get<Equipe>(this.apiPath+id).subscribe(response => {
-  //         response["listeJoueur"] = {id}
-  //         this.equipe = response;
-  //       });
-        /*
-        this.http.get<Equipe>(this.apiPath+"attaquant").subscribe(response => {
-          this.attaquants = response;
-        });
-
-        this.http.get<Equipe>(this.apiPath+"gardien").subscribe(response => {
-          this.gardien = response;
-        });
-
-        pour tous les attaquants du tab attaquants faire
-          somme += attaquant.getStats
-        fin pour
-
-        somme += gardien.getStats
-
-        traitement de la somme selon un calcul défini
-
-        --> Pareil pour équipe adverse
-      
-        */
-      //   break;
-      // case "milieu":
-        //this.matchService.lancerStrategieMilieu();
-        // même déroulé que strat attaquant
-      //   break;
-      // case "defenseur":
-        //this.matchService.lancerStrategieDefenseur();
-        // même déroulé que strat attaquant
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
-
+    jouerMatch(){
+      switch(this.strategieCourante){
+        case "Defense" :
+          this.recapService.lancerStrategieDefense(
+          this.idEquieCourant,this.idEquipeAdversaire,this.matchCourant);
+          break;
+        case "Milieu" :
+          this.recapService.lancerStrategieMilieu(
+          this.idEquieCourant,this.idEquipeAdversaire,this.matchCourant);
+          break;
+        case "Attaque" :
+        this.recapService.lancerStrategieAttaque(
+        this.idEquieCourant,this.idEquipeAdversaire,this.matchCourant);
+          break;
+      }
+    }
 }
