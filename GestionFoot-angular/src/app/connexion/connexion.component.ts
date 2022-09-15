@@ -32,7 +32,13 @@ export class ConnexionComponent implements OnInit {
       else localStorage.setItem('hasEquipe', 'false');
       if(this.authService.compte.hasEquipe) this.router.navigate(["/menu-principal"]);
       else this.router.navigate(["/menu-inscription"]);
+<<<<<<< HEAD
       // console.log(this.authService.compte.equipe["id"]);
+=======
+      
+      console.log(this.authService.compte.equipe.id);
+
+>>>>>>> Amélia
     }, error => {
       if(error.status == "403") {
         this.loginError = true;
