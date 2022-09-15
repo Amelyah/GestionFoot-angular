@@ -1,9 +1,6 @@
-
 <div class="container-fluid">
+    <div class="background"></div>
     <h1>Mon profil</h1>
-
-    <a class="retour" *ngIf="auth.compte.hasEquipe" [routerLink]="['/menu-principal']">Retour</a>
-    <a class="retour" *ngIf="!auth.compte.hasEquipe" [routerLink]="['/menu-inscription']">Retour</a>
 
     <div class="avatar-upload">
         <div class="avatar-edit">
@@ -19,7 +16,11 @@
             <div id="imagePreview" style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/751678/skytsunami.png);">
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <a class="retour" *ngIf="auth.compte.hasEquipe" [routerLink]="['/menu-principal']">Retour</a>
+    <a class="retour" *ngIf="!auth.compte.hasEquipe" [routerLink]="['/menu-inscription']">Retour</a>
+
 
     <div class="compte">
         <div class="infos-compte">

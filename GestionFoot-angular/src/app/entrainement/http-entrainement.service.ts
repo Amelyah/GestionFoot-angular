@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppConfigService } from '../app-config.service';
-import { Equipe } from '../model';
+import { Equipe, Match } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class HttpEntrainementService {
     this.apiPath = this.appConfig.apiBackEndUrl + "equipe/";
     this.load();
   }
-
+ 
   load() {
     this.http.get<Equipe>(this.apiPath+1).subscribe(response => {
       this.equipe = response;

@@ -1,39 +1,51 @@
-.background{
+app-compte {
+    display: block;
+    height: 100% !important;
+  }
 
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    background-color: #000000c0;
-    z-index: -1;
-}
-
-
-h1{
-    font-family: 'Prompt', sans-serif;
-    font-size: 2rem;
-    color: white;
-    padding: 40px;
-    text-shadow: 10px 10px 20px #0154C2;
-
-}
-
-input[type=file]{
-    padding:10px;
-    background:#2d2d2d;
-}
+  img{
+    max-width:180px;
+  }
   
+  input[type=file]{
+  padding:10px;
+  background:#2d2d2d;}
+
+.container-fluid{
+    background-color: #282c34;
+    height: 100%;
+    width: 100%;
+	display: block;
+}
+
+h1 {
+	font-size: 24px;
+	margin: 0;
+    padding:40px;
+	font-weight: lighter;
+	text-transform: uppercase;
+    color: white;
+    text-shadow: 10px 10px 20px #0154C2;
+    display: flex;
+    font-family: 'Prompt', sans-serif;
+    height: 4%;
+    width: 100%;
+}
+
 .avatar-upload{
     position: relative;
     max-width: 205px;
     margin: 20px auto;
     height: 20%;
 }
+
 .avatar-edit {
     position: absolute;
     right: 57px;
     z-index: 1;
     top: -20px;
 }
+
 .avatar-edit input {
     display: none;
 }
@@ -58,16 +70,7 @@ input[type=file]{
     background: #f1f1f1;
     border-color: #d6d6d6;
 }
-.avatar-edit > label::after {
-    font-family: 'FontAwesome';
-    color: #757575;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    margin: auto; 
-}
+
 .avatar-edit > label::after {
     font-family: 'FontAwesome';
     color: #757575;
@@ -154,6 +157,7 @@ svg{
 }
 
 .recapEquipe{
-    color: rgb(255, 255, 255);
+    color: white;
     padding: 40px;
+    background-color: #282c34;
 }

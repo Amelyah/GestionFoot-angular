@@ -1,0 +1,100 @@
+/* html { 
+    height: 100%; 
+  } 
+  
+  body {
+    min-height: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  } */
+  .container-fluid{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #6080cb;  */
+    flex-direction: column;
+    background-image: url("../../assets/medias/img/homeBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+h1{
+    margin: -40px 0 0 -900px;
+    margin-bottom: 20px;
+    padding: 0;
+    color: black;
+}
+
+.background-container{
+    display: flex;
+    justify-content: center;
+    height: 80%;
+    width: 80%;
+    /* background-image: url("../../assets/medias/img/homeBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-shadow: 0 10px 5px 0 rgba(0, 0, 0, 0.782); */
+}
+
+.boxBtn{
+    display: flex;
+    align-items: center;
+}
+
+.btn{
+    border: solid 1px yellow;
+    margin: 40px;
+    padding: 40px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    position: absolute;
+}
+
+p{
+    text-shadow: 2px 5px black;
+    font-size: 30px;
+    transform: rotate(-5deg);
+}
+
+.boxBtnConnexion{
+    position: relative;
+    height: 480px;
+    width: 308px;
+    top: -4vh;
+    right: -61vh;
+}
+
+.boxBtnConnexion:hover{
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.782);
+}
+
+.boxBtnInscription{
+    position: relative;
+    height: 480px;
+    width: 311px;
+    top: -4vh;
+    left: -58vh;
+}
+
+.boxBtnInscription:hover{
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.782);
+}
+
+.btnConnexion{
+    position: relative;
+    top: 62vh;
+    left: 9vh;
+}
+
+.btnInscription{
+    position: relative;
+    top: 62vh;
+    right: -9vh;
+}
