@@ -1,3 +1,5 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
 .equipe_title{
     text-align: center;
     border: 1px solid black;

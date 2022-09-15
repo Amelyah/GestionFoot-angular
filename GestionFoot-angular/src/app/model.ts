@@ -4,7 +4,8 @@ export class Compte {
     login: string;
     password: string;
     email: string;
-    hasEquipe: boolean = false;;
+    hasEquipe: boolean = false;
+	equipe : Equipe;
 
     constructor( login : string, password: string, email?: string, id?: number, version? : number) {
         this.id = id;
@@ -77,6 +78,14 @@ export class Equipe {
 		this.jeux = jeux;
 		this.pressing = pressing;
 	}
+	getId() : number|undefined {
+        if(this.id ){
+            return this.id;
+        } else {
+            return undefined;
+        }
+        
+    }
 }
 
 export abstract class Joueur extends Personne {

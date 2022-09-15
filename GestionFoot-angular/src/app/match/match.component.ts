@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { EquipeHttpService } from '../equipe/equipe-http.service';
 import { Arbitre, Attaquant, Defenseur, Entraineur, Equipe, Gardien, Joueur, Milieu } from '../model';
 
@@ -47,7 +48,8 @@ export class MatchComponent implements OnInit {
   equipeAdverse : Equipe;
 
  
-  constructor(private equipeHttp : EquipeHttpService,private router: Router) { 
+  constructor(private equipeHttp : EquipeHttpService,private router: Router,
+    private authService: AuthService) { 
     this.modelEquipe();
     const id = this.randomize([0,1,2]).pop();
     this.stategieAdverse = this.tabStrategie[id];
@@ -179,8 +181,8 @@ export class MatchComponent implements OnInit {
 
   CreationMatch(){
     
-    console.log('les données sont prêtes');
-    console.log("l'id du Gardien est dd ",this.adversaireGardien["id"]);
+    // console.log('les données sont prêtes');
+    // console.log("l'id du Gardien est dd ",this.adversaireGardien["id"]);
 
     this.equipeAdverse = new Equipe("Belgique","red",11,undefined,undefined,
     this.adversaireCohesion,this.adversaireJeux,this.adversairePressing);
@@ -212,8 +214,14 @@ export class MatchComponent implements OnInit {
   }
   directionRecap(){
     this.equipeHttp.createMatchMinimum().subscribe( resp => {
-      
-      this.router.navigate(['/recapitulatif'],{queryParams:{"idMatch":resp["id"],"idEquipeCourante":2,"idEquipeAdverse":this.equipeAdverse["id"],"idArbitre":this.arbitre["id"],"strategieUser":this.strategieUser,"strategieAdverse":this.stategieAdverse}});
+      console.log("idMatch",resp["id"]);
+      console.log("idEquipeAdverse",this.equipeAdverse["id"]);
+      console.log("idArbitre",this.arbitre["id"]);
+      console.log("strategieUser",this.strategieUser);
+      console.log("strategieAdverse",this.stategieAdverse,resp["id"]);
+      console.log("idEquipeCourante",this.authService.compte.equipe["id"]);
+      this.equipeHttp.updateMatchWithCompte(this.authService.compte.id,resp["id"]);
+      this.router.navigate(['/recapitulatif'],{queryParams:{"idMatch":resp["id"],"idEquipeCourante":this.authService.compte.equipe["id"],"idEquipeAdverse":this.equipeAdverse["id"],"idArbitre":this.arbitre["id"],"strategieUser":this.strategieUser,"strategieAdverse":this.stategieAdverse}});
 
     })
         //http://localhost:4200/recap?idEquipeCourant=2&idEquipeAdverse=45&idArbitre&stratEquipeCourant=%27Attaque%27&stratEquipeAdverse=%27defense%27

@@ -19,6 +19,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   seConnecter() {
+    
     this.authService.connexion(this.login, this.password).subscribe((resp) => {
       this.authService.compte = resp;
       
@@ -31,7 +32,7 @@ export class ConnexionComponent implements OnInit {
       else localStorage.setItem('hasEquipe', 'false');
       if(this.authService.compte.hasEquipe) this.router.navigate(["/menu-principal"]);
       else this.router.navigate(["/menu-inscription"]);
-      
+      // console.log(this.authService.compte.equipe["id"]);
     }, error => {
       if(error.status == "403") {
         this.loginError = true;

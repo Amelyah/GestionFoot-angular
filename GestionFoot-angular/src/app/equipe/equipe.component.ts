@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { Attaquant, Defenseur, Entraineur, Equipe, Gardien, Joueur, Milieu } from '../model';
 import { EquipeHttpService } from './equipe-http.service';
 
@@ -35,7 +36,8 @@ export class EquipeComponent implements OnInit {
 	pressing : number  = 0 ;
 
 
-  constructor(private serviceEquipeHttp : EquipeHttpService, private router : Router) { 
+  constructor(private serviceEquipeHttp : EquipeHttpService, private router : Router,
+    private authService: AuthService) { 
     this.joueurAll();
     
   }
@@ -105,15 +107,42 @@ export class EquipeComponent implements OnInit {
         this.cohesion,this.jeux,this.pressing);
       this.serviceEquipeHttp.createEquipeMinimum(this.equipe).subscribe( resp => {
         this.equipe  = resp;
-        this.serviceEquipeHttp.addGardienToEquipe(this.equipe["id"],this.currentIdGardien).subscribe();
-        this.serviceEquipeHttp.addDefenseurToEquipe(this.equipe["id"],this.currentIdDefenseur1).subscribe();
-        this.serviceEquipeHttp.addDefenseurToEquipe(this.equipe["id"],this.currentIdDefenseur2).subscribe();
-        this.serviceEquipeHttp.addMilieuToEquipe(this.equipe["id"],this.currentIdMilieu1).subscribe();
-        this.serviceEquipeHttp.addMilieuToEquipe(this.equipe["id"],this.currentIdMilieu2).subscribe();
-        this.serviceEquipeHttp.addAttaquantToEquipe(this.equipe["id"],this.currentIdAttaquant1).subscribe();
-        this.serviceEquipeHttp.addAttaquantToEquipe(this.equipe["id"],this.currentIdAttaquant2).subscribe();
-        this.serviceEquipeHttp.addEntraineurToEquipe(this.equipe["id"],this.currentIdEntraineur).subscribe();
-        this.router.navigate(['/menu-principal'])
+        this.serviceEquipeHttp.addGardienToEquipe(this.equipe["id"],this.currentIdGardien).subscribe( resp =>{
+          this.serviceEquipeHttp.addDefenseurToEquipe(this.equipe["id"],this.currentIdDefenseur1).subscribe(  resp =>{
+            this.serviceEquipeHttp.addDefenseurToEquipe(this.equipe["id"],this.currentIdDefenseur2).subscribe( resp => {
+              this.serviceEquipeHttp.addMilieuToEquipe(this.equipe["id"],this.currentIdMilieu1).subscribe( resp =>{
+                this.serviceEquipeHttp.addMilieuToEquipe(this.equipe["id"],this.currentIdMilieu2).subscribe( resp => {
+                  this.serviceEquipeHttp.addAttaquantToEquipe(this.equipe["id"],this.currentIdAttaquant1).subscribe( resp => {
+                    this.serviceEquipeHttp.addAttaquantToEquipe(this.equipe["id"],this.currentIdAttaquant2).subscribe( resp => {
+                      this.serviceEquipeHttp.addEntraineurToEquipe(this.equipe["id"],this.currentIdEntraineur).subscribe( resp => {
+                        this.authService.compte.equipe = this.equipe;
+                        this.authService.compte.hasEquipe = true ;
+                        this.serviceEquipeHttp.updateCompteHasEquipe(this.authService.compte.id,true).subscribe(resp => {
+                          console.log("this.authService.compte.id : ",this.authService.compte.id);
+                          console.log("equipe créé : ",this.equipe["id"]);
+                          this.serviceEquipeHttp.updateCompteWithEquipe(this.authService.compte.id,this.equipe["id"] ).subscribe( resp =>{
+                            this.router.navigate(['/menu-principal'])
+                          });
+                        });
+                      });
+                    });
+                  });
+                });
+              });
+            });
+          });
+
+        });
+                
+        
+        
+        
+        
+        
+        
+        
+        
+        
       });
 
     }

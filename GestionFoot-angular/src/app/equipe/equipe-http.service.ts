@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Arbitre, Attaquant, Defenseur, Entraineur, Equipe, Gardien, Joueur, Match, Milieu } from '../model';
+import { Arbitre, Attaquant, Compte, Defenseur, Entraineur, Equipe, Gardien, Joueur, Match, Milieu } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -74,6 +74,20 @@ export class EquipeHttpService {
   }
   createMatchMinimum() : Observable<Match>{
     return this.http.post<Match>(`http://localhost:8080/api/match`,{});
+  }
+  updateCompteWithEquipe(idCompte : number, idEquipe : number) : Observable<Compte>{
+    return this.http.patch<Compte>(`http://localhost:8080/api/compte/${idCompte}/equipe/${idEquipe}`,{});
+  }
+  updateCompteHasEquipe(idCompte : number, hasValue : boolean) : Observable<Compte>{
+    return this.http.patch<Compte>(`http://localhost:8080/api/compte/${idCompte}`,{
+      "hasEquipe" : hasValue
+    });
+  }
+  updateMatchWithCompte(idCompte : number, idMatch : number) {
+    this.http.patch<Compte>(`http://localhost:8080/api/match/${idMatch}/addcompte/${idCompte}`,{}).subscribe();
+  }
+  getByIdWithJoueur(idEquipe : number) {
+    this.http.get<Equipe>(`http://localhost:8080/api/equipe/${idEquipe}/details`).subscribe();
   }
   
 
