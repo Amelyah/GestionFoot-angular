@@ -1,0 +1,115 @@
+.container{
+    background-color: #282c34;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container-fluid{
+    background-color: #282c34;
+    height: 100%;
+    width: 90%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+h1{
+    color: white;
+    text-shadow: 10px 10px 20px #0154C2;
+    display: flex;
+    justify-content: center;
+    font-family: 'Prompt', sans-serif;
+    margin: 0;
+    padding: 30px;
+}
+
+h2, h3{
+    color: white;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+h4{
+    color:  #0154C2;
+    /* color: #107303; */
+}
+
+p{
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+a p:hover{
+    text-decoration: underline;
+}
+
+img{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.equipes{
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.equipeCourante{
+    border: 4px solid rgb(255, 255, 255);
+    width: 47%;
+    padding: 30px;
+}
+
+.equipeAdverse{
+    border: 4px solid rgb(255, 255, 255);
+    width: 47%;
+    margin-left: 6%;
+    padding: 30px;
+}
+
+.equipeCourante p, .equipeAdverse p{
+    font-size: 12px;
+}
+
+.score{
+    border: 4px solid rgb(255, 255, 255);
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: center;
+    display: block;
+    justify-content: center;
+}
+
+.titreScore{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.score h3 {
+    margin: 0;
+}
+
+.gagnant{
+    border: 4px solid rgb(255, 255, 255);
+    width: 100%;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.gagnant h3 {
+    margin: 0;
+}
+
+.titreScore{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

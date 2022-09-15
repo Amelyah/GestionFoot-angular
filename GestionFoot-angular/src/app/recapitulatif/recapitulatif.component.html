@@ -1,4 +1,84 @@
-<p>recapitulatif works!</p>
+<div class="container">
+    <div class="container-fluid">
+        <h1>MATCH TERMINÉ !</h1>
+
+        <a [routerLink]="['/menu-principal']"><p class="btnMenu">Retour </p></a>
 
 
-<a [routerLink]="['/menu-principal']"><p class="btnMenu">retour menu </p></a>
+        <h2>Récapitualtif du match joué</h2>
+
+
+        <div class="equipes">
+            <div class="equipeCourante">
+                <h3>Ton équipe</h3>
+
+                <h4>Attaquants</h4>
+                <div *ngFor="let attaquant of getAttaquantsCourant()">
+                    <p>{{ attaquant["nom"].toUpperCase() }} {{ attaquant["prenom"] }}</p>
+                    <!-- <p>{{ attaquant["physique"] }}</p> -->
+                </div><br>
+
+                <h4>Défenseurs</h4>
+                <div *ngFor="let defenseur of getDefenseursCourant()">
+                    <p>{{ defenseur["nom"].toUpperCase() }} {{ defenseur["prenom"] }}</p>
+                    <!-- <p>{{ attaquant["physique"] }}</p> -->
+                </div><br>
+
+                <h4>Milieux</h4>
+                <div *ngFor="let milieu of getMilieuxCourant()">
+                    <p>{{ milieu["nom"].toUpperCase() }} {{ milieu["prenom"] }}</p>
+                    <!-- <p>{{ attaquant["physique"] }}</p> -->
+                </div><br>
+                  
+            </div>
+
+
+            <div class="equipeAdverse">
+                <h3>Equipe adverse</h3>
+                
+                <h4>Attaquants</h4>
+                <div *ngFor="let attaquant of getAttaquantsAdverse()">
+                    <p>{{ attaquant["nom"].toUpperCase() }} {{ attaquant["prenom"] }}</p>
+                    <!-- <p>{{ attaquant["physique"] }}</p> -->
+                </div><br>
+
+                <h4>Défenseurs</h4>
+                <div *ngFor="let defenseur of getDefenseursAdverse()">
+                    <p>{{ defenseur["nom"].toUpperCase() }} {{ defenseur["prenom"] }}</p>
+                    <!-- <p>{{ attaquant["physique"] }}</p> -->
+                </div><br>
+
+                <h4>Milieux</h4>
+                <div *ngFor="let milieu of getMilieuxAdverse()">
+                    <p>{{ milieu["nom"].toUpperCase() }} {{ milieu["prenom"] }}</p>
+                    <!-- <p>{{ attaquant["physique"] }}</p> -->
+                </div><br>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="score">
+            <div class="titreScore">
+                <img src="../../assets/medias/img/ballon.png" alt="coupe" width="35px" height="20px">
+                <h3> SCORE </h3>
+                <img src="../../assets/medias/img/ballon.png" alt="coupe" width="35px" height="20px"><br>
+            </div>
+            <p>0{{getScoreDom()}} - {{getScoreExt()}}1</p> 
+        </div>
+
+        <div class="gagnant">
+            <div class="titreScore">
+                <img src="../../assets/medias/img/coupe.png" alt="coupe" width="20px" height="20px">
+                <h3> GAGNANT </h3>
+                <img src="../../assets/medias/img/coupe.png" alt="coupe" width="20px" height="20px"><br>
+            </div>
+            
+            <p *ngIf="getScoreDom() > getScoreExt()">Tu es le gagnant !</p> 
+            <p *ngIf="getScoreDom() < getScoreExt()">L'équipe adverse a gagné !</p> 
+        </div>
+
+    </div>
+</div>

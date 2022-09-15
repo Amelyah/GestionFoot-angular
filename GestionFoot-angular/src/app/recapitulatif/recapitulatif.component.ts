@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Attaquant, Defenseur, Milieu } from '../model';
 import { RecapService } from './recap.service';
 
 @Component({
@@ -49,5 +50,45 @@ export class RecapitulatifComponent implements OnInit {
         this.idEquieCourant,this.idEquipeAdversaire,this.matchCourant);
           break;
       }
+    }
+
+    getScoreDom() : number{
+      console.log(this.recapService.scoreDomCourant);
+      return this.recapService.scoreDomCourant;
+    }
+
+    getScoreExt() : number{
+      console.log(this.recapService.scoreDomCourant);
+      return this.recapService.scoreExtCourant;
+    }
+
+    getAttaquantsCourant() : Array <Attaquant>{
+      console.log(this.recapService.attaquantsCourant);
+      return this.recapService.attaquantsCourant;
+    }
+
+    getAttaquantsAdverse() : Array<Attaquant>{
+      console.log(this.recapService.attaquantsAdverse);
+      return this.recapService.attaquantsAdverse;
+    }
+
+    getDefenseursCourant() : Array <Defenseur>{
+      console.log(this.recapService.defenseursCourant);
+      return this.recapService.defenseursCourant;
+    }
+
+    getDefenseursAdverse() : Array<Defenseur>{
+      console.log(this.recapService.defenseursAdverse);
+      return this.recapService.defenseursAdverse;
+    }
+
+    getMilieuxCourant() : Array <Milieu>{
+      console.log(this.recapService.milieuxCourant);
+      return this.recapService.milieuxCourant;
+    }
+
+    getMilieuxAdverse() : Array<Milieu>{
+      console.log(this.recapService.milieuxAdverse);
+      return this.recapService.milieuxAdverse;
     }
 }
