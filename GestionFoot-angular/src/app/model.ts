@@ -4,7 +4,8 @@ export class Compte {
     login: string;
     password: string;
     email: string;
-    hasEquipe: boolean = false;;
+    hasEquipe: boolean = false;
+	equipe : Equipe;
 
     constructor( login : string, password: string, email?: string, id?: number, version? : number) {
         this.id = id;
@@ -48,17 +49,17 @@ export abstract class Personne {
 
 export class Equipe {
 	
-	private id : number;
-	private pays : string ;
-	private  classement : number;
-	private listJoueur : Array<Joueur>  ;
-	private entraineur : Entraineur;
-	private couleur : string;
-	private dom : Array<Match>;
-	private ext : Array<Match>;
-	private cohesion : number;
-	private jeux : number;
-	private pressing : number;
+	id : number;
+	pays : string ;
+	classement : number;
+	listJoueur : Array<Joueur>  ;
+	entraineur : Entraineur;
+	couleur : string;
+	dom : Array<Match>;
+	ext : Array<Match>;
+	cohesion : number;
+	jeux : number;
+	pressing : number;
 	
 	
 	

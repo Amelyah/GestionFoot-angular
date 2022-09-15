@@ -17,10 +17,10 @@ export class MatchComponent implements OnInit {
   idEntraineur : Array<number> = new Array<number>();
   idArbitre : Array<number> = new Array<number>();
 
-<<<<<<< HEAD
-  constructor(){}
+
+  //constructor(){}
   //constructor(private matchService: MatchHttpService) { }
-=======
+
   idAdversaireGardien : number;
   idAdversaireDefenseur1 : number;
   idAdversaireDefenseur2 : number;
@@ -49,7 +49,7 @@ export class MatchComponent implements OnInit {
   adversairePays : string = "Belgique";
  
   equipeAdverse : Equipe;
->>>>>>> main
+
 
 
  
@@ -286,8 +286,3 @@ export class MatchComponent implements OnInit {
   // Redirection vers page récapitulatif
 
 }
-
-<<<<<<< HEAD
-=======
-
->>>>>>> main

@@ -32,6 +32,8 @@ export class ConnexionComponent implements OnInit {
       if(this.authService.compte.hasEquipe) this.router.navigate(["/menu-principal"]);
       else this.router.navigate(["/menu-inscription"]);
       
+      console.log(this.authService.compte.equipe.id);
+
     }, error => {
       if(error.status == "403") {
         this.loginError = true;
