@@ -1,6 +1,68 @@
-<p> Voici ton équipe adverse !</p>
+<div class="background"></div>
+<img class="terrain" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f1/TERRAIN_FOOTBALL.svg/434px-TERRAIN_FOOTBALL.svg.png" alt="">
+<div class="title">
+<p class="title_ligne1"> Voici ton équipe</p>
+<p class="title_ligne2">ADVERSE !</p>
+</div>
 
-<p> L'équipe </p>
+
+<div class="goal">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    </svg>
+<div> {{adversaireGardien["nom"] | nomRacc : adversaireGardien["prenom"]}} </div>
+</div>
+
+<div class="defenseur1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    </svg>
+<div> {{adversaireDefenseur1["nom"] | nomRacc : adversaireDefenseur1["prenom"]}} </div>
+</div>
+<div class="defenseur2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    </svg>
+<div> {{adversaireDefenseur2["nom"] | nomRacc : adversaireDefenseur2["prenom"]}} </div>
+</div>
+<div class="milieu1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    </svg>
+<div> {{adversaireMilieu1["nom"] | nomRacc : adversaireMilieu1["prenom"]}} </div>
+</div>
+<div class="milieu2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    </svg>
+<div> {{adversaireMilieu2["nom"] | nomRacc : adversaireMilieu2["prenom"]}} </div>
+</div>
+<div class="attaquant1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    </svg>
+<div> {{adversaireAttaquant1["nom"] | nomRacc : adversaireAttaquant1["prenom"]}} </div>
+</div>
+<div class="attaquant2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    </svg>
+<div> {{adversaireAttaquant2["nom"] | nomRacc : adversaireAttaquant2["prenom"]}} </div>
+</div>
+
+<!-- <div class="container_terrain_block">
+    <img class="container_terrain_block_img" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f1/TERRAIN_FOOTBALL.svg/434px-TERRAIN_FOOTBALL.svg.png" alt="">
+</div> -->
+<!-- <svg *ngIf="currentIdGardien" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill joueur_gardien_svg" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg>
+
+<svg *ngIf="currentIdDefenseur1" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill joueur_defenseur1_svg" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg> -->
+
+<div class="conteneur_effectifs">
+<p class="title_equipe">L'équipe </p>
 <div *ngIf="adversaireGardien &&  adversaireDefenseur1 &&
 adversaireDefenseur2 &&
 adversaireMilieu1 &&
@@ -23,23 +85,28 @@ adversaireEntraineur  " class="choix">
 
 
 </div>
-<p> La startégie de l'adeversaire est :  {{stategieAdverse}}</p>
-<div class="strategie">
-    <label for="choix_pays_equipe">Choix de la startégies :</label>
-    <select name="select" style=" width: 300px;" id="choix_pays_equipe" class="form-select" aria-label="Default select example" [(ngModel)]="strategieUser">
+<div class="title_equipe">Arbitre</div>
+<p *ngIf="arbitre">{{arbitre["nom"] | nomRacc : arbitre["prenom"]}}</p>
+<!-- <p *ngIf="equipeAdverse">{{equipeAdverse["id"]}}</p> -->
+<p> La startégie de l'adversaire est :  <span class="strategie">{{stategieAdverse}}</span></p>
+</div>
+
+
+<div class="choisir_strategie">
+    <label for="choix_pays_equipe"> Choisir votre startégie :</label>
+    <select name="select" style=" width: 300px;" id="choix_pays_equipe" class="form-select" [(ngModel)]="strategieUser">
         <option value='Attaque' selected>Attaque</option>
         <option value='Defense'>Défense</option>
         <option value='Milieu'>Milieu</option>
         
     </select>
+    
+   
 </div>
-<div>L'arbitre du match est : </div>
-<p *ngIf="arbitre">{{arbitre["nom"] | nomRacc : arbitre["prenom"]}}</p>
-<p *ngIf="equipeAdverse">{{equipeAdverse["id"]}}</p>
-
-<button type="button" class="btn btn-primary boostrapButton" (click)="directionRecap()">
+<button type="button" class="jouer_match btn btn-primary boostrapButton" (click)="directionRecap()">
     Joueur Match
 </button>
+
 
 
 

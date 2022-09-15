@@ -88,7 +88,6 @@ export class EquipeComponent implements OnInit {
     this.currentIdAttaquant1 &&
     this.currentIdAttaquant2 &&
     this.currentIdEntraineur &&
-    this.currentClassementEquipe &&
     this.verificationPoint()
     ){
       return true;

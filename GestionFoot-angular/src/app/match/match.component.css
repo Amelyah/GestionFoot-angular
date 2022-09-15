@@ -1,0 +1,143 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+*{
+    font-family: sans-serif;
+}
+.background{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.516);
+    z-index: -1;
+}
+.terrain{
+    position: fixed;
+    top: 20%;
+    right: 39%;
+    z-index: 0;
+}
+.goal{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 23%;
+    right: 48%;
+    z-index: 1;
+    font-size: 20px;
+}
+svg {
+    margin: auto;
+}
+
+.defenseur1{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 35%;
+    right: 56%;
+    z-index: 1;
+    font-size: 20px;
+}
+
+.defenseur2{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 35%;
+    right: 40%;
+    z-index: 1;
+    font-size: 20px;
+}
+.milieu1{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 49%;
+    right: 43%;
+    z-index: 1;
+    font-size: 20px;
+}
+.milieu2{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 49%;
+    right: 52%;
+    z-index: 1;
+    font-size: 20px;
+}
+
+.attaquant1{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 61%;
+    right: 42%;
+    z-index: 1;
+    font-size: 20px;
+}
+.attaquant2{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 61%;
+    right: 52%;
+    z-index: 1;
+    font-size: 20px;
+}
+
+/* .defenseur1
+.defenseur2
+.milieu1
+.milieu2
+.attaquant1
+.attaquant2 */
+
+.title{
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 30px;
+    font-size: 2rem;
+    color: white;
+    border: 1px solid white;
+    background-image: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3286430.jpg');
+
+}
+
+
+.conteneur_effectifs{
+    margin-top: 70px;
+    margin-left: 70px ;
+    display: flex;
+    flex-direction: column;
+}
+.title_equipe{
+    align-self: flex-start;
+    font-size: 1.6rem ;
+    font-weight: bolder;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.strategie{
+    font-size: 1.6rem ;
+    font-weight: bolder;
+    color: white;
+
+}
+.choisir_strategie{
+    margin-top: 70px;
+    margin-left: 70px ;
+    font-size: 2rem ;
+}
+
+.jouer_match{
+    margin-top: 70px;
+    margin-left: 70px ;
+}
+
